@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class Array {
 	
 	
-	//Array Page
+	//Array Pages
 	public static By arrays=By.xpath("//*[@href='/array/arrays-in-python/']");
 	public static By arrayList=By.xpath("//*[@href='/array/arrays-using-list/']");
 	public static By basicoperlist=By.xpath("//*[@href='/array/basic-operations-in-lists/']");
