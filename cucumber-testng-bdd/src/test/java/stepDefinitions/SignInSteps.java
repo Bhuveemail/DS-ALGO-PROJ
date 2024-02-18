@@ -12,9 +12,6 @@ import org.testng.annotations.AfterTest;
 
 import commonFunctions.ExcelReader;
 import commonFunctions.commonMethods;
-import commonFunctions.constants;
-import commonFunctions.envDetails;
-import commonFunctions.objectRepo;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,18 +29,11 @@ public class SignInSteps extends commonMethods{
 
 	@Given("^Open Browser$")
     public void open_browser() throws Throwable {     
-		 invokeBrowser(envDetails.browser);
+		 invokeBrowser(envProps.getProperty("browser"));
        
     }
 	  
-	@Given("^login to the application$")
-    public void login_to_the_application() throws Throwable {    
-		invokeBrowser(envDetails.browser);
-    	implicitWait(10);
-    	loadUI(constants.appURL);
-    	implicitWait(100);
-       
-    }
+	
 	@When("user enters <inv_username> and <inv_password>")
 	public void user_enters_inv_username_and_inv_password(DataTable credentials) throws InterruptedException {
 		 
@@ -58,11 +48,11 @@ public class SignInSteps extends commonMethods{
 		    //invokeBrowser(envDetails.browser);
 		    maximizeWindow();
 	    	implicitWait(10);
-	    	loadUI(envDetails.appURL);
+	    	loadUI(envProps.getProperty("appURL"));
 	    	implicitWait(10);
 	    	click(SignIn.signInLink);
 	    	
-	    	List<Map<String, String>> excelRows=ExcelReader.getData(constants.testData,"sheet1");
+	    	List<Map<String, String>> excelRows=ExcelReader.getData(envProps.getProperty("testData"),"sheet1");
 	    	    	
 	    	sendText(SignIn.userName, excelRows.get(0).get("User Name"));
 	    	sendText(SignIn.password, excelRows.get(0).get("Password"));

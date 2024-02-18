@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
@@ -34,6 +35,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import cucumber.api.cli.Main;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import pages.Queue;
@@ -46,31 +48,55 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class commonMethods {
+	public static Properties envProps = new Properties();
+	@SuppressWarnings("deprecation")
+	public static void main(String args[]) throws Throwable {	
+		try {	   
+			Main.main(new String[] { 	    
+					"-g","ccommonFunctions",	    
+					"-g","stepDefinitions",	     
+					"-g","Runners.TestRunner",	  
+					"classpath:features", 	        
+					"-t","@SmokeTest",	        
+					"-p", "pretty", 	   
+					"-p", "json:target/cucumber-reports/cucumber.json", 	
+					"-p", "html:target/cucumber-reports/cucumberreport.html",	  
+					"-p","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",	
+					"-m"	 
+					}	    );
+			} catch (Exception e) {	
+				e.printStackTrace();	    
+				System.out.println("Main method exception : " + e);	}	
+		}
+	
 	 public static WebDriver driver;
 	
 		/*
 		 * public static void setUpDriver(String browser) { invokeBrowser (browser); }
 		 */
-	public static void tearDown() {
+		
+		 public static void tearDown() {
+		  
+		  driver.quit(); 
+		  }
+		 
+		 
 	
-		driver.quit();
-	}
-	
-	
+	 
 	public static void invokeBrowser(String browser) {
 		
-		if(envDetails.browser.equalsIgnoreCase("Chrome")) {
-	    	System.setProperty("webdriver.chrome.driver",constants.chromePath);
+		if(browser.equalsIgnoreCase("Chrome")) {
+	    	System.setProperty("webdriver.chrome.driver",envProps.getProperty("chromePath"));
 	        driver = new ChromeDriver();
 	        System.out.println("Invoke Browser - "+browser);
 	    	}
-	    	else if (envDetails.browser.equalsIgnoreCase("Firefox")) {
+	    	else if (browser.equalsIgnoreCase("Firefox")) {
 				/*
 				 * System.setProperty("webdriver.chrome.driver",constants.chromePath); driver =
 				 * new FirefoxDriver();
 				 */
 	        	}
-	    	else if (envDetails.browser.equalsIgnoreCase("IE")) {
+	    	else if (browser.equalsIgnoreCase("IE")) {
 				/*
 				 * System.setProperty("webdriver.chrome.driver",constants.chromePath); driver =
 				 * new FirefoxDriver();
@@ -151,6 +177,16 @@ public class commonMethods {
 	public void closePopUp() {
 	driver.switchTo().alert().accept();
 	}
+
+	public static Properties loadProperties() throws FileNotFoundException, IOException {
+
+		String configPath = "src/test/resources/config.properties";
+		envProps.load(new FileInputStream(configPath));
+		return envProps;
+		
+	}
+
+	
     
 	
 }

@@ -9,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
 import commonFunctions.commonMethods;
-import commonFunctions.objectRepo;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -25,8 +24,6 @@ public class LinkedListSteps extends commonMethods{
 	 @When("I click on get started on linked list")
 	    public void i_click_on_get_started_on_linked_list() {
 	      
-	    	click(objectRepo.linkedListGetStarted);
-	    	System.out.println("Linked List Get Started Button Clicked");
 	    	
 	    }
 }
