@@ -9,9 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
 import commonFunctions.commonMethods;
-import commonFunctions.constants;
-import commonFunctions.envDetails;
-import commonFunctions.objectRepo;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -27,10 +24,10 @@ import org.junit.Assert;
 
 public class TreeSteps extends commonMethods {
 
-	@After
-	public static void afterAll() throws Throwable {
-		driver.quit();
-	}
+//	@After
+//	public static void afterAll() throws Throwable {
+//		driver.quit();
+//	}
 
 	@Then("I verify the Tree box displays")
 	public void i_verify_the_Tree_box_displays() {

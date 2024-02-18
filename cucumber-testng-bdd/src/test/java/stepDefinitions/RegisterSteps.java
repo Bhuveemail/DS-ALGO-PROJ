@@ -8,9 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 
 import commonFunctions.commonMethods;
-import commonFunctions.constants;
-import commonFunctions.envDetails;
-import commonFunctions.objectRepo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,18 +22,14 @@ public class RegisterSteps extends commonMethods{
 //	    public static void before_all() throws Throwable {     
 //		   invokeBrowser(envDetails.browser);
 //	    }
-	    @AfterTest
-	    public static void after_all() throws Throwable {     
-	    	driver.quit();
-	    }
-	
+//	    @AfterTest
+//	    public static void after_all() throws Throwable {     
+//	    	driver.quit();
+//	    }
+//	
 	    @Given("verify register")
 	    public void verify_register() {
-	        // Write code here that turns the phrase above into concrete actions
-	       
-	    	loadUI(constants.appURL);	    
-	    	click(objectRepo.registerLink);
-	    	
+	        
 	    	
 	    	
 }

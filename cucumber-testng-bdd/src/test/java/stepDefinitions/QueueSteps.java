@@ -9,9 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
 import commonFunctions.commonMethods;
-import commonFunctions.constants;
-import commonFunctions.envDetails;
-import commonFunctions.objectRepo;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
