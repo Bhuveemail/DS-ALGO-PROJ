@@ -71,7 +71,7 @@ public class commonMethods {
 	
 	 public static WebDriver driver;
 	
-		/*//
+		/*
 		 * public static void setUpDriver(String browser) { invokeBrowser (browser); }
 		 */
 		
