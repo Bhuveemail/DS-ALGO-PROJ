@@ -32,6 +32,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -49,6 +51,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class commonMethods {
 	public static Properties envProps = new Properties();
+	
 	@SuppressWarnings("deprecation")
 	public static void main(String args[]) throws Throwable {	
 		try {	   
@@ -91,17 +94,14 @@ public class commonMethods {
 	        System.out.println("Invoke Browser - "+browser);
 	    	}
 	    	else if (browser.equalsIgnoreCase("Firefox")) {
-				/*
-				 * System.setProperty("webdriver.chrome.driver",constants.chromePath); driver =
-				 * new FirefoxDriver();
-				 */
+	    		System.setProperty("webdriver.chrome.driver",envProps.getProperty("chromePath"));
+		        commonMethods.driver = new ChromeDriver();
+		        System.out.println("Invoke Browser - "+browser);
 	        	}
-	    	else if (browser.equalsIgnoreCase("IE")) {
-				/*
-				 * System.setProperty("webdriver.chrome.driver",constants.chromePath); driver =
-				 * new FirefoxDriver();
-				 */
-	        	}
+		else if(browser.equalsIgnoreCase("Edge")){
+			System.setProperty("webdriver.edge.driver",envProps.getProperty("EdgePath"));
+			commonMethods.driver = new EdgeDriver();
+		}
 	}
 
 
