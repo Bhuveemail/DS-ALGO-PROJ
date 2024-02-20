@@ -51,8 +51,8 @@ public class QueueSteps extends commonMethods {
 		Assert.assertEquals("Queue Operations", queueOp);
 	}
 
-	@Then("I verify the Try here functionalities with code file \"(.*)\"$")
-	public void i_verify_the_try_here_functionalities(String file) {
+	@Then("I verify the  queue Try here functionalities with code file \"(.*)\"$")
+	public void i_verify_the_queue_try_here_functionalities(String file) {
 
 		Boolean actual = isDisplayed(Queue.tryHere);
 		Assert.assertEquals(true, actual);
@@ -65,8 +65,8 @@ public class QueueSteps extends commonMethods {
 
 	}
 
-	@Then("I verify the Try here functionalities with input \"(.*)\"$")
-	public void i_verify_the_try_here_functionalities_with_input(String input) {
+	@Then("I verify the queue Try here functionalities with input \"(.*)\"$")
+	public void i_verify_the_queue_try_here_functionalities_with_input(String input) {
 		tryEditor(input);
 	}
 

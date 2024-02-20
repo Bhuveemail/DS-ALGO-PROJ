@@ -7,9 +7,8 @@
         <methods>
           <include name="setUpClass"/>
           <include name="startBrowser"/>
+          <include name="runScenario" invocation-numbers="1"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
-          <include name="tear"/>
         </methods>
       </class> <!-- Runners.TestRunner -->
     </classes>

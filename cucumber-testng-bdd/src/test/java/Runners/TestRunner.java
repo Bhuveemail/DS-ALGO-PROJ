@@ -21,11 +21,11 @@ import commonFunctions.commonMethods;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@queue_page_all"
+        tags = "@linkedList_page_all"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
-    @Override
+   @Override
     @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
