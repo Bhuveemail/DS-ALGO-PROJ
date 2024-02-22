@@ -15,6 +15,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.Array;
+import pages.DataStructure;
+import pages.Graph;
 import pages.Queue;
 
 import java.util.concurrent.TimeUnit;
@@ -51,8 +53,8 @@ public class QueueSteps extends commonMethods {
 		Assert.assertEquals("Queue Operations", queueOp);
 	}
 
-	@Then("I verify the Try here functionalities with code file \"(.*)\"$")
-	public void i_verify_the_try_here_functionalities(String file) {
+	@Then("I verify the Queue Try here functionalities with code file \"(.*)\"$")
+	public void i_verify_the_Queue_try_here_functionalities(String file) {
 
 		Boolean actual = isDisplayed(Queue.tryHere);
 		Assert.assertEquals(true, actual);
@@ -60,13 +62,14 @@ public class QueueSteps extends commonMethods {
 		String text = readText(file);
 		implicitWait(10);
 		driver.switchTo().activeElement().sendKeys(text);
+		
 		click(Queue.run);
 		implicitWait(10);
 
 	}
 
-	@Then("I verify the Try here functionalities with input \"(.*)\"$")
-	public void i_verify_the_try_here_functionalities_with_input(String input) {
+	@Then("I verify the Queue Try here functionalities with input \"(.*)\"$")
+	public void i_verify_the_Queue_try_here_functionalities_with_input(String input) {
 		tryEditor(input);
 	}
 
@@ -116,5 +119,32 @@ public class QueueSteps extends commonMethods {
 	public void i_click_on_implementation_queue_operations() {
 		click(Queue.queueOp);
 	}
+	
+	@Then("I click on Practice Questions of Queue")
+	public void i_click_on_Practice_Questions_of_Queue() {
+		click(Queue.practiceQuestions);
+	}
+
+
+	@Then("I verify the Queue blank page for \"(.*)\"$")
+	public void i_verify_the_queue_blank_page_for(String input) {
+
+		String actual = getText(Queue.blankPage);
+		Assert.assertEquals("", actual);
+
+		implicitWait(10);
+		System.out.println("Positive Flow is verified successfully for " + input);
+		backWindow();
+		implicitWait(10);
+
+	}
+	@Then("I verify the queue valid result for positive scenario")
+	public void i_verify_the__queue_valid_result_for_positive_scenario() {
+
+		String actual = getText(Queue.output);
+		Assert.assertEquals("hello", actual);
+	}
+	
+	
 
 }
