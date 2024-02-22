@@ -11,10 +11,12 @@ public class Queue {
 	public static By impCollection=By.xpath("//*[contains(@href, 'implementation-collections')]");
 	public static By impArray=By.xpath("//*[contains(@href, 'Implementation-array')]");
 	public static By queueOp=By.xpath("//*[contains(@href, 'QueueOp')]");
+	public static By practiceQuestions=By.xpath("//*[@href='/queue/practice']");
 	public static By tryHere=By.xpath("//*[@href='/tryEditor']");
 	public static By textEditor=By.xpath("//*[@class='CodeMirror-sizer']");
 	public static By run=By.xpath("//*[contains(@onclick, 'runit')]");
 	public static By output=By.xpath("//*[@id='output']");
+	public static By blankPage=By.xpath("//*[@class='container']");
 	
 	
 	

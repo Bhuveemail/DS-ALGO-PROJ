@@ -147,17 +147,6 @@ public class LinkedListSteps extends commonMethods{
 		click(LinkedList.practiceQuestions);
 	}
 
-	@Then("I verify the blank page for \"(.*)\"$")
-	public void i_verify_the_blank_page_for(String input) {
-
-		String actual = getText(LinkedList.blankPage);
-		Assert.assertEquals("", actual);
-
-		implicitWait(10);
-		System.out.println("Positive Flow is verified successfully for " + input);
-		backWindow();
-		implicitWait(10);
-
-	}
+	
 	
 }
