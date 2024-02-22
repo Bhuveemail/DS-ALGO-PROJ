@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 
-import commonFunctions.commonMethods;
+import commonFunctions.Utility;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
@@ -38,20 +38,20 @@ public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
     @BeforeMethod
     @Parameters("Browser")
     public void startBrowser(String Browser) throws FileNotFoundException, IOException {
-    	Properties configProps=commonMethods.loadProperties();
+    	Properties configProps=Utility.loadProperties();
     	if(Browser.equalsIgnoreCase("Chrome")) {
 	    		System.setProperty("webdriver.chrome.driver",configProps.getProperty("chromePath"));
-	    		commonMethods.driver = new ChromeDriver();
+	    		Utility.driver = new ChromeDriver();
 	    		System.out.println("Invoke Browser - "+Browser);
 	    	}
 	    	else if (Browser.equalsIgnoreCase("Firefox")) {
 	    		System.setProperty("webdriver.gecko.driver", configProps.getProperty("FireFoxPath"));
-	    		commonMethods.driver = new FirefoxDriver();
+	    		Utility.driver = new FirefoxDriver();
 	    		System.out.println("Invoke Browser - "+Browser);
 	        	}
 	    	else if(Browser.equalsIgnoreCase("Edge")){
 	    		System.setProperty("webdriver.edge.driver",configProps.getProperty("EdgePath"));
-	    		commonMethods.driver = new EdgeDriver();
+	    		Utility.driver = new EdgeDriver();
 	    		System.out.println("Invoke Browser - "+Browser);
 	    	}
     }

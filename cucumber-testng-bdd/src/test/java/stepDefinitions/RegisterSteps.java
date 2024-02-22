@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 
-import commonFunctions.commonMethods;
+import commonFunctions.Utility;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 
-public class RegisterSteps extends commonMethods{
+public class RegisterSteps extends Utility{
    
 //	   @BeforeAll
 //	    public static void before_all() throws Throwable {     

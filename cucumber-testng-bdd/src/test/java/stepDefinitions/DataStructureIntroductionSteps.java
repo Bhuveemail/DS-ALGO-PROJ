@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-import commonFunctions.commonMethods;
+import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.Assert;
 
-public class DataStructureIntroductionSteps extends commonMethods {
+public class DataStructureIntroductionSteps extends Utility {
 
 	@Then("I verify the DataStructure box displays")
 	public void i_verify_the_DataStructure_box_displays() {

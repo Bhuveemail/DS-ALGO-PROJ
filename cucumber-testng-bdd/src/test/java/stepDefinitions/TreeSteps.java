@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-import commonFunctions.commonMethods;
+import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.Assert;
 
-public class TreeSteps extends commonMethods {
+public class TreeSteps extends Utility {
 
 //	@After
 //	public static void afterAll() throws Throwable {

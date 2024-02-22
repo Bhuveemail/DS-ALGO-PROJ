@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-import commonFunctions.commonMethods;
+import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 
-public class LinkedListSteps extends commonMethods{
+public class LinkedListSteps extends Utility{
 	
 	@Then("I verify the linkedList box displays")
 	public void i_verify_the_linkedList_box_displays() {

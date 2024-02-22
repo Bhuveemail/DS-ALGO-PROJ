@@ -40,7 +40,6 @@ import org.testng.annotations.BeforeTest;
 import cucumber.api.cli.Main;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
-import pages.LinkedList;
 import pages.Queue;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -50,63 +49,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class commonMethods {
-	public static Properties envProps = new Properties();
+public class Utility extends BaseTest {
 	
-	@SuppressWarnings("deprecation")
-	public static void main(String args[]) throws Throwable {	
-		try {	   
-			Main.main(new String[] { 	    
-					"-g","ccommonFunctions",	    
-					"-g","stepDefinitions",	     
-					"-g","Runners.TestRunner",	  
-					"classpath:features", 	        
-					"-t","@SmokeTest",	        
-					"-p", "pretty", 	   
-					"-p", "json:target/cucumber-reports/cucumber.json", 	
-					"-p", "html:target/cucumber-reports/cucumberreport.html",	  
-					"-p","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",	
-					"-m"	 
-					}	    );
-			} catch (Exception e) {	
-				e.printStackTrace();	    
-				System.out.println("Main method exception : " + e);	}	
-		}
 	
-	 public static WebDriver driver;
-	
-		/*
-		 * public static void setUpDriver(String browser) { invokeBrowser (browser); }
-		 */
-		
-		 public static void tearDown() {
-		  
-		  driver.quit(); 
-		  }
-		 
-		 
-	
-	 
-	public static void invokeBrowser(String browser) {
-		
-		if(browser.equalsIgnoreCase("Chrome")) {
-	    	System.setProperty("webdriver.chrome.driver",envProps.getProperty("chromePath"));
-	        driver = new ChromeDriver();
-	        System.out.println("Invoke Browser - "+browser);
-	    	}
-	    	else if (browser.equalsIgnoreCase("Firefox")) {
-	    		System.setProperty("webdriver.chrome.driver",envProps.getProperty("chromePath"));
-		        commonMethods.driver = new ChromeDriver();
-		        System.out.println("Invoke Browser - "+browser);
-	        	}
-		else if(browser.equalsIgnoreCase("Edge")){
-			System.setProperty("webdriver.edge.driver",envProps.getProperty("EdgePath"));
-			commonMethods.driver = new EdgeDriver();
-		}
-	}
-
-
-	public void loadUI(String url) {
+public void loadUI(String url) {
 		
 		driver.get(url);
 	}
@@ -187,7 +133,13 @@ public class commonMethods {
 		
 	}
 
-	
+	public void takeScreenshot(Scenario scenario) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		byte[] src = ts.getScreenshotAs(OutputType.BYTES);
+		scenario.attach(src, "image/png", "screenshot");
+	}
+    
     
 	
 }

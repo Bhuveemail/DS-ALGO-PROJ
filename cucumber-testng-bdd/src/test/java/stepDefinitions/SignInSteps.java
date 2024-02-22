@@ -9,9 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
+import io.cucumber.java.Scenario;
 
 import commonFunctions.ExcelReader;
-import commonFunctions.commonMethods;
+import commonFunctions.Utility;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,16 +24,17 @@ import java.util.concurrent.TimeUnit;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 
-public class SignInSteps extends commonMethods{
+public class SignInSteps extends Utility{
+	Scenario scenario;
 
-	 
+	 @Given("I load application")
+	    public void i_load_application() throws InvalidFormatException, IOException {
+		    
+		    //invokeBrowser(envDetails.browser);
+		  loadUI("https://www.google.com");
+	    	
+	    }
 
-	@Given("^Open Browser$")
-    public void open_browser() throws Throwable {     
-		 invokeBrowser(envProps.getProperty("browser"));
-       
-    }
-	  
 	
 	@When("user enters <inv_username> and <inv_password>")
 	public void user_enters_inv_username_and_inv_password(DataTable credentials) throws InterruptedException {

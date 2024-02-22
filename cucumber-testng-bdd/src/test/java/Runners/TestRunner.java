@@ -13,7 +13,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
-import commonFunctions.commonMethods;
+import commonFunctions.BaseTest;
+import commonFunctions.Utility;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
@@ -21,7 +22,7 @@ import commonFunctions.commonMethods;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@tree_page_all"
+        tags = "@queue_test"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -32,8 +33,8 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     }
     @BeforeMethod
     public void startBrowser() throws FileNotFoundException, IOException {
-    	Properties envProps=commonMethods.loadProperties();
-    	commonMethods.invokeBrowser(envProps.getProperty("browser"));
+    	BaseTest.envProps=Utility.loadProperties();
+    	Utility.invokeBrowser(BaseTest.envProps.getProperty("browser"));
     }
     
     

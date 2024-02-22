@@ -8,7 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-import commonFunctions.commonMethods;
+
+import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -24,13 +25,14 @@ import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.Assert;
 
-public class QueueSteps extends commonMethods {
+public class QueueSteps extends Utility {
+
 
 	@Then("I verify the queue box displays")
 	public void i_verify_the_queue_box_displays() {
 		String queueBoxText = getText(Queue.QueueCard);
 		Assert.assertEquals("Queue", queueBoxText);
-
+		
 	}
 
 	@When("I click on get started on queue")
@@ -38,6 +40,7 @@ public class QueueSteps extends commonMethods {
 		click(Queue.QueueGetStarted);
 		System.out.println("Queue Get Started Button Clicked");
 		System.out.println("-------------------------------------------------------");
+		
 	}
 
 	@Then("I verify the topic covered list queue")
