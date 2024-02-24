@@ -35,7 +35,7 @@ public class TreeSteps extends Utility {
 		Assert.assertEquals("Tree", treeBoxText);
 	}
 
-	@When("I click on get started on Tree")
+	@Then("I click on get started on Tree")
 	public void i_click_on_get_started_on_Tree() {
 
 		click(Tree.TreeGetStarted);
@@ -44,58 +44,7 @@ public class TreeSteps extends Utility {
 
 	}
 
-	@Then("I verify the topic covered list Tree")
-	public void i_verify_the_topic_covered_list_Tree() {
-
-		String overview = getText(Tree.overview);
-		Assert.assertEquals("Overview of Trees", overview);
-		String terminologies = getText(Tree.terminologies);
-		Assert.assertEquals("Terminologies", terminologies);
-		String typesoftrees = getText(Tree.typesoftrees);
-		Assert.assertEquals("Types of Trees", typesoftrees);
-		String treetraversals = getText(Tree.treetraversals);
-		Assert.assertEquals("Tree Traversals", treetraversals);
-		String traversalsillu = getText(Tree.traversalsillu);
-		Assert.assertEquals("Traversals-Illustration", traversalsillu);
-		String binarytree = getText(Tree.binarytree);
-		Assert.assertEquals("Binary Trees", binarytree);
-		String typesofbinary = getText(Tree.typesofbinary);
-		Assert.assertEquals("Types of Binary Trees", typesofbinary);
-		String imppython = getText(Tree.imppython);
-		Assert.assertEquals("Implementation in Python", imppython);
-		String binarytreetraver = getText(Tree.binarytreetraver);
-		Assert.assertEquals("Binary Tree Traversals", binarytreetraver);
-		String impofbinary = getText(Tree.impofbinary);
-		Assert.assertEquals("Implementation of Binary Trees", impofbinary);
-		String appofbinary = getText(Tree.appofbinary);
-		Assert.assertEquals("Applications of Binary trees", appofbinary);
-		String binarysearch = getText(Tree.binarysearch);
-		Assert.assertEquals("Binary Search Trees", binarysearch);
-		String impofbst = getText(Tree.impofbst);
-		Assert.assertEquals("Implementation Of BST", impofbst);
-
-	}
-
-	@Then("I verify the Tree Try here functionalities with code file \"(.*)\"$")
-	public void i_verify_the_Tree_try_here_functionalities(String file) {
-
-		Boolean actual = isDisplayed(Tree.tryHere);
-		Assert.assertEquals(true, actual);
-		click(Tree.tryHere);
-
-		String text = readText(file);
-		implicitWait(10);
-		driver.switchTo().activeElement().sendKeys(text);
-
-		// sendText(Queue.textEditor, text);
-		click(Tree.run);
-
-		implicitWait(10);
-		/*
-		 * String output=getText(Queue.output);
-		 * System.out.println("*******Output*********"+output);
-		 */
-	}
+	
 
 	@Then("I verify the Tree Try here functionalities with input \"(.*)\"$")
 	public void i_verify_the_Tree_try_here_functionalities_with_input(String input) {

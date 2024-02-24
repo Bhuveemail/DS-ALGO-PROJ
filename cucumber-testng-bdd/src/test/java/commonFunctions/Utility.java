@@ -128,8 +128,8 @@ public void loadUI(String url) {
 	public static Properties loadProperties() throws FileNotFoundException, IOException {
 
 		String configPath = "src/test/resources/config.properties";
-		envProps.load(new FileInputStream(configPath));
-		return envProps;
+		configProps.load(new FileInputStream(configPath));
+		return configProps;
 		
 	}
 

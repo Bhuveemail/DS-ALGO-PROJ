@@ -3,7 +3,8 @@ Feature: Verify the Data Structure functionalities
 
   @datastructure_page_all
   Scenario Outline: Verify Operations in Graph  Functionalities for Positive and Negative Scenarios
-    Given I login to ds-algo portal
+    Given I Launch the Application
+    When I login to ds-algo portal
     When I click on get started on DataStructure
     
     Then I click on Time Complexity of DataStructure
@@ -15,7 +16,7 @@ Feature: Verify the Data Structure functionalities
     
    	Then I click on Practice Questions of DataStructure
    	Then I verify the blank page for "Practice Questions"
-   Then I am bala
+ 
    
      Examples: 
       | positive_input    | negative_input     | errorMessage                     |

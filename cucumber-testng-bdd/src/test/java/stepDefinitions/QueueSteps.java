@@ -35,7 +35,7 @@ public class QueueSteps extends Utility {
 		
 	}
 
-	@When("I click on get started on queue")
+	@Then("I click on get started on queue")
 	public void i_click_on_get_started_on_queue() {
 		click(Queue.QueueGetStarted);
 		System.out.println("Queue Get Started Button Clicked");
@@ -43,33 +43,7 @@ public class QueueSteps extends Utility {
 		
 	}
 
-	@Then("I verify the topic covered list queue")
-	public void i_verify_the_topic_covered_list_queue() {
-
-		String impList = getText(Queue.impList);
-		Assert.assertEquals("Implementation of Queue in Python", impList);
-		String impCollection = getText(Queue.impCollection);
-		Assert.assertEquals("Implementation using collections.deque", impCollection);
-		String impArray = getText(Queue.impArray);
-		Assert.assertEquals("Implementation using array", impArray);
-		String queueOp = getText(Queue.queueOp);
-		Assert.assertEquals("Queue Operations", queueOp);
-	}
-
-	@Then("I verify the Queue Try here functionalities with code file \"(.*)\"$")
-	public void i_verify_the_Queue_try_here_functionalities(String file) {
-
-		Boolean actual = isDisplayed(Queue.tryHere);
-		Assert.assertEquals(true, actual);
-		click(Queue.tryHere);
-		String text = readText(file);
-		implicitWait(10);
-		driver.switchTo().activeElement().sendKeys(text);
-		
-		click(Queue.run);
-		implicitWait(10);
-
-	}
+	
 
 	@Then("I verify the Queue Try here functionalities with input \"(.*)\"$")
 	public void i_verify_the_Queue_try_here_functionalities_with_input(String input) {

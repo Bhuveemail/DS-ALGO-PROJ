@@ -32,7 +32,7 @@ public class DataStructureIntroductionSteps extends Utility {
 
 	}
 
-	@When("I click on get started on DataStructure")
+	@Then("I click on get started on DataStructure")
 	public void i_click_on_get_started_on_DataStructure() {
 		click(DataStructure.DataStructureGetStarted);
 		System.out.println("DataStructure Get Started Button Clicked");

@@ -14,10 +14,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 
+import commonFunctions.BaseTest;
+import commonFunctions.ConfigReader;
 import commonFunctions.Utility;
 
 @CucumberOptions(
@@ -26,7 +30,7 @@ import commonFunctions.Utility;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
-        tags = "@test"
+        tags = "@Graph_page_all"
 )
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 
@@ -35,27 +39,15 @@ public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
     public Object[][] scenarios() {
         return super.scenarios();
     }
-    @BeforeMethod
+   
+    @BeforeTest
     @Parameters("Browser")
-    public void startBrowser(String Browser) throws FileNotFoundException, IOException {
-    	Properties configProps=Utility.loadProperties();
-    	if(Browser.equalsIgnoreCase("Chrome")) {
-	    		System.setProperty("webdriver.chrome.driver",configProps.getProperty("chromePath"));
-	    		Utility.driver = new ChromeDriver();
-	    		System.out.println("Invoke Browser - "+Browser);
-	    	}
-	    	else if (Browser.equalsIgnoreCase("Firefox")) {
-	    		System.setProperty("webdriver.gecko.driver", configProps.getProperty("FireFoxPath"));
-	    		Utility.driver = new FirefoxDriver();
-	    		System.out.println("Invoke Browser - "+Browser);
-	        	}
-	    	else if(Browser.equalsIgnoreCase("Edge")){
-	    		System.setProperty("webdriver.edge.driver",configProps.getProperty("EdgePath"));
-	    		Utility.driver = new EdgeDriver();
-	    		System.out.println("Invoke Browser - "+Browser);
-	    	}
-    }
-    
+    public void defineBrowser(String browser) throws Throwable {
+
+		ConfigReader.setBrowserType(browser);
+		BaseTest.configProps.setProperty("browser",browser);
+
+	}
     
     
     

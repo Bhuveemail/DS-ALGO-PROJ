@@ -22,7 +22,7 @@ import commonFunctions.Utility;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@queue_test"
+        tags = "@linkedList_page_all"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -32,9 +32,9 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
     @BeforeMethod
-    public void startBrowser() throws FileNotFoundException, IOException {
-    	BaseTest.envProps=Utility.loadProperties();
-    	Utility.invokeBrowser(BaseTest.envProps.getProperty("browser"));
+    public void loadConfig() throws FileNotFoundException, IOException {
+    	BaseTest.configProps=Utility.loadProperties();
+    	
     }
     
     

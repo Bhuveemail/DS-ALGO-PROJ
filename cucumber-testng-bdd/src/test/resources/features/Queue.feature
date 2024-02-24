@@ -1,14 +1,12 @@
 @queuePage @regression
 Feature: Verify the queue functionalities
 
-@queue_test
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
-    Given I load application
     
   @queue_page_all
   Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
-    Given I login to ds-algo portal
-    When I click on get started on queue
+    Given I Launch the Application
+    When I login to ds-algo portal
+    Then I click on get started on queue
     
     
     Then I click on Implementation of Queue in Python

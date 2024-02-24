@@ -3,8 +3,9 @@ Feature: Verify the linkedList functionalities
 
  @linkedList_page_all
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
-    Given I login to ds-algo portal
-    When I click on get started on linkedList
+    Given I Launch the Application
+    When I login to ds-algo portal
+    Then I click on get started on linkedList
 
     Then I click on Introduction
     Then I verify the linkedList Try here functionalities with input "<positive_input>"

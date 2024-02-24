@@ -29,7 +29,7 @@ public class LinkedListSteps extends Utility{
 
 	}
 
-	@When("I click on get started on linkedList")
+	@Then("I click on get started on linkedList")
 	public void i_click_on_get_started_on_linkedList() {
 		click(LinkedList.GetStarted);
 		System.out.println("LinkedList Get Started Button Clicked");
