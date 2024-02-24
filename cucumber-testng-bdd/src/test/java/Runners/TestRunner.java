@@ -22,7 +22,7 @@ import commonFunctions.Utility;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@linkedList_page_all"
+        tags = "@stack_page_all"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
