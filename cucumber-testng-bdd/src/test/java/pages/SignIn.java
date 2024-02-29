@@ -9,6 +9,8 @@ public class SignIn {
 	public static By userName=By.name("username");
 	public static By password=By.name("password");
 	public static By loginButton=By.xpath("//*[@value='Login']");
+	public static By roleAlert=By.xpath("//*[@role='alert']");
 	public static By signOutLink=By.xpath("//*[@href='/logout']");
+	public static By registerLink=By.xpath("//*[@href='/register']");
 	
 }

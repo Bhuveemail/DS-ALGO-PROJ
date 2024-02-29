@@ -15,6 +15,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.Home;
+import pages.LinkedList;
 import pages.SignIn;
 
 import java.util.concurrent.TimeUnit;
@@ -40,15 +41,63 @@ public class SignInSteps extends Utility{
 	    	
 	    	
 	    }
-	 @Then("I log out")
+	 @Then("I click on signin link")
+	    public void i_click_on_signin_link() {
+	        
+	    	  click(SignIn.signInLink);
+	       	
+	    }
+	 
+	 @Then("I verify the user name password login button on signin page")
+	 public void i_verify_the_user_name_password_login_button_on_signin_page() {
+			    	
+	    	isDisplayed(SignIn.userName);
+	    	isDisplayed(SignIn.password);
+	        isDisplayed(SignIn.loginButton);
+	        isDisplayed(SignIn.registerLink);
+	    		
+   }
+	 
+	 
+	 @Then("I verify the successful signin")
+	 public void i_verify_the_successful_signin() throws InvalidFormatException, IOException {
+	    	
+		 List<Map<String, String>> excelRows=BaseTest.getData(configProps.getProperty("testData"),"sheet1");
+	    	
+	    	sendText(SignIn.userName, excelRows.get(0).get("User Name"));
+	    	sendText(SignIn.password, excelRows.get(0).get("Password"));
+	    	click(SignIn.loginButton);
+	    	
+	    	String actual = getText(SignIn.roleAlert).replaceAll("\n", "").replaceAll("\r", "");
+			Assert.assertEquals("You are logged in", actual);
+
+	    		
+}
+	 @When("I log out")
 	    public void I_log_out() {
 	        
 	    	  click(SignIn.signOutLink);
 	       	
 	    }
 	    
+	 @Then("I verify the successful log out message")
+	 public void i_verify_the_successful_log_out_message() {
+		 String actual = getText(SignIn.roleAlert).replaceAll("\n", "").replaceAll("\r", "");
+			Assert.assertEquals("Logged out successfully", actual);
+		 
+		 
+	 }
 	
-    
+    @Then("I verify the error message for invalid UserName \"(.*)\" and invalid Password \"(.*)\"$")
+    public void I_verify_the_error_message_for_invalid_UserName_and_invalid_Password(String username, String password) {
+    	sendText(SignIn.userName, username);
+    	sendText(SignIn.password, password);
+    	click(SignIn.loginButton);
+    	String actual = getText(SignIn.roleAlert).replaceAll("\n", "").replaceAll("\r", "");
+		Assert.assertEquals("Invalid Username and Password", actual);
+    	
+    	
+    }
 
 	
 	
