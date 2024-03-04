@@ -35,7 +35,7 @@ import commonFunctions.Utility;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
-        tags = "@signin_page_positive"
+        tags = "@test"
 )
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 
