@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-
+import commonFunctions.LoggerLoad;
 import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -39,6 +39,7 @@ public class QueueSteps extends Utility {
 	public void i_click_on_get_started_on_queue() {
 		click(Queue.QueueGetStarted);
 		System.out.println("Queue Get Started Button Clicked");
+		LoggerLoad.info("Queue Get Started Button Clicked");
 		System.out.println("-------------------------------------------------------");
 		
 	}

@@ -40,27 +40,23 @@ public class Hooks extends Utility {
 
 	@After(order = 1)
 	public void tear() {
-		Utility.tearDown();
+		if(driver!=null)
+		driver.quit();
 	}
 
 	@Before
 	public static void before() throws Throwable {
 
-		// Get browser Type from config file
-
-		// Loggerload.info("Loading Config file");
-
-		// ConfigReader.loadConfig();
-
+		
 		String browser = ConfigReader.getBrowserType();
 		if (browser != null)
 			ConfigReader.setBrowserType(browser);
 		else {
 			BaseTest.configProps = Utility.loadProperties();
 			browser = BaseTest.configProps.getProperty("browser");
-
+			
 		}
-		Utility.invokeBrowser(browser);
+		BaseTest.invokeBrowser(browser);
 
 	}
 

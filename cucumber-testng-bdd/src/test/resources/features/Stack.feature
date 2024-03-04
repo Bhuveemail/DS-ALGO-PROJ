@@ -1,4 +1,4 @@
-@Stackpage @regression
+@Stackpage @test
 Feature: Verify the stack functionalities
 
   @stack_page_all

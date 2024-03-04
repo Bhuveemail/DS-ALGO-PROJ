@@ -26,22 +26,13 @@ public class BaseTest {
 	
 	public static Properties configProps = new Properties();
 	public static Scenario scenario;	
-	 public static WebDriver driver;
-	
-		/*
-		 * public static void setUpDriver(String browser) { invokeBrowser (browser); }
-		 */
-		
-		 public static void tearDown() {
-		  if(driver!=null)
-			  driver.quit(); 
-		  }
-		 
-		 
-	
+	 public static WebDriver driver=null;
 	 
-	public static void invokeBrowser(String Browser) throws FileNotFoundException, IOException {
+
+	public static WebDriver invokeBrowser(String Browser) throws FileNotFoundException, IOException {
+		
 		BaseTest.configProps=Utility.loadProperties();
+	
 		if(Browser.equalsIgnoreCase("Chrome")) {
 	    	System.setProperty("webdriver.chrome.driver",configProps.getProperty("chromePath"));
 	        driver = new ChromeDriver();
@@ -49,14 +40,16 @@ public class BaseTest {
 	    	}
 		else if (Browser.equalsIgnoreCase("Firefox")) {
     		System.setProperty("webdriver.gecko.driver", configProps.getProperty("FireFoxPath"));
-    		Utility.driver = new FirefoxDriver();
+    		
+    		driver=new FirefoxDriver();
     		System.out.println("Invoke Browser - "+Browser);
         	}
     	else if(Browser.equalsIgnoreCase("Edge")){
     		System.setProperty("webdriver.edge.driver",configProps.getProperty("EdgePath"));
-    		Utility.driver = new EdgeDriver();
+    		driver = new EdgeDriver();
     		System.out.println("Invoke Browser - "+Browser);
     	}
+		return driver;
 	}
 
 	public static List<Map<String, String>> getData(String excelFilePath, String sheetName)

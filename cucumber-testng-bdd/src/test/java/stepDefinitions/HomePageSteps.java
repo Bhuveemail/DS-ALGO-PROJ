@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import io.cucumber.java.Scenario;
 import commonFunctions.BaseTest;
+import commonFunctions.ConfigReader;
 import commonFunctions.Utility;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -29,9 +31,10 @@ import org.junit.Assert;
 public class HomePageSteps extends Utility {
 	Scenario scenario;
 
+	
 	@Given("I Launch the Application")
-	public void i_launch_the_application() {
-
+	public void i_launch_the_application() throws FileNotFoundException, IOException {
+		
 		maximizeWindow();
 		implicitWait(10);
 		loadUI(configProps.getProperty("appURL"));

@@ -63,6 +63,9 @@ public class Utility extends BaseTest {
 		driver.get(url);
 	}
 
+	public static void tearDown() {
+		driver.quit();
+	}
 	public void implicitWait(long time) {
 
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);

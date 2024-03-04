@@ -1,4 +1,4 @@
-@queuePage @regression
+@queuePage @test
 Feature: Verify the queue functionalities
 
     

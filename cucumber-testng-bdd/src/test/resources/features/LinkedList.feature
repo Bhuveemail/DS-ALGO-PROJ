@@ -1,4 +1,4 @@
-@linkedListPage @regression
+@linkedListPage @test
 Feature: Verify the linkedList functionalities
 
  @linkedList_page_all
@@ -10,7 +10,7 @@ Feature: Verify the linkedList functionalities
     Then I click on Introduction
     Then I verify the linkedList Try here functionalities with input "<positive_input>"
     Then I verify the valid result for linkedList positive scenario for "Implementation using linkedList"
-    Then  I click on Introduction
+    Then I click on Introduction
     Then I verify the linkedList Try here functionalities with input "<negative_input>"
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList"
   

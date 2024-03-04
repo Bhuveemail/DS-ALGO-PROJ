@@ -1,4 +1,4 @@
-@Treepage @regression
+@Treepage @test
 Feature: Verify the tree functionalities
 
   @tree_page_all

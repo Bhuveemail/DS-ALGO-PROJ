@@ -1,4 +1,4 @@
-@array @regression 
+@array @test 
 Feature: Verify the array functionalities
 
  @array_page_all

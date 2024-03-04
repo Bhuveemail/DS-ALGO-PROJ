@@ -1,4 +1,4 @@
-@Graphpage @regression
+@Graphpage @test
 Feature: Verify the graph functionalities
 
   @Graph_page_all

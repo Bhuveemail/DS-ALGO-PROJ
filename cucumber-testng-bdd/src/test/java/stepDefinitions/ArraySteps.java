@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-
+import commonFunctions.BaseTest;
 import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -25,7 +25,6 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 
 public class ArraySteps extends Utility {
-
 
 	@Then("I verify the array box displays")
 	public void i_verify_the_array_box_displays() {
@@ -101,6 +100,7 @@ public class ArraySteps extends Utility {
 
 	@Then("I validate the Array pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_Array_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
+		
 		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();

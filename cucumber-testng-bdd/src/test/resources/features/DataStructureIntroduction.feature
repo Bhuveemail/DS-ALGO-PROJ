@@ -1,4 +1,4 @@
-@datastructurePage @regression
+@datastructurePage @test
 Feature: Verify the Data Structure functionalities
 
   @datastructure_page_all

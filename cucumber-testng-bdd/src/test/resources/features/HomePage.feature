@@ -1,4 +1,4 @@
-@homePage @regression 
+@homePage @test
 Feature: Verify the homepage functionalities
 
     
