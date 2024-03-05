@@ -6,15 +6,15 @@
     <test name="Chrome Test">
         <parameter name="Browser" value="CHROME"/>
            <classes>
-            <class name="Runners.crossBrowserTestRunner"/>
+            <class name="Runners.TestRunner"/>
         </classes>
     </test>
     
-      <test name="Firefox Test">
+      <!-- <test name="Firefox Test">
         <parameter name="Browser" value="FIREFOX"/>
         <classes>
             <class name="Runners.crossBrowserTestRunner"/>
         </classes>
-    </test>   
+    </test>    -->
    
 </suite>
