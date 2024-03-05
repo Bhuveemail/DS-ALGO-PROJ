@@ -57,10 +57,8 @@ public class QueueSteps extends Utility {
 		String actual = getText(Queue.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -74,7 +72,7 @@ public class QueueSteps extends Utility {
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+	
 
 	}
 
@@ -110,10 +108,8 @@ public class QueueSteps extends Utility {
 		String actual = getText(Queue.blankPage);
 		Assert.assertEquals("", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 	@Then("I verify the queue valid result for positive scenario")

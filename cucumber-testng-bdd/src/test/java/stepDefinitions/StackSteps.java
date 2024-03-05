@@ -57,10 +57,8 @@ public class StackSteps extends Utility {
 		String actual = getText(Stack.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -72,7 +70,7 @@ public class StackSteps extends Utility {
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+
 
 	}
 
@@ -102,10 +100,8 @@ public class StackSteps extends Utility {
 		String actual = getText(Stack.blankPage);
 		Assert.assertEquals("", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 	@Then("I verify the Stack valid result for positive scenario")

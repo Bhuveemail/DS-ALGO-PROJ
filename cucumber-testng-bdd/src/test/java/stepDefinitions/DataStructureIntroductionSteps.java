@@ -49,11 +49,11 @@ public class DataStructureIntroductionSteps extends Utility {
 		Assert.assertEquals(true, actual);
 		click(DataStructure.tryHere);
 		String text = readText(file);
-		implicitWait(10);
+		waitTillElementVisible(DataStructure.run, 30);
 		driver.switchTo().activeElement().sendKeys(text);
 		
 		click(DataStructure.run);
-		implicitWait(10);
+	
 
 	}
 
@@ -68,10 +68,9 @@ public class DataStructureIntroductionSteps extends Utility {
 		String actual = getText(DataStructure.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
+
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -83,10 +82,9 @@ public class DataStructureIntroductionSteps extends Utility {
 		String actual = getText(DataStructure.blankPage);
 		Assert.assertEquals("", actual);
 
-		implicitWait(10);
+		
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -117,7 +115,7 @@ public class DataStructureIntroductionSteps extends Utility {
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+		
 
 	}
 

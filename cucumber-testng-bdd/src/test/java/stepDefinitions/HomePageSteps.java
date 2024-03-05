@@ -18,6 +18,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.DataStructure;
 import pages.Home;
 import pages.LinkedList;
 import pages.Queue;
@@ -36,10 +37,10 @@ public class HomePageSteps extends Utility {
 	public void i_launch_the_application() throws FileNotFoundException, IOException {
 		
 		maximizeWindow();
-		implicitWait(10);
+		
 		loadUI(configProps.getProperty("appURL"));
 		click(Home.homeGetStarted);
-		implicitWait(10);
+		
 	}
 
 	@Then("I verify the error message when click on Data structure options Randomly without logged in")
@@ -57,7 +58,7 @@ public class HomePageSteps extends Utility {
 		  String actual = getText(Home.alertMessage).replaceAll("\n","").replaceAll("\r", ""); 
 		  Assert.assertEquals("You are not logged in", actual);
 		  
-		  implicitWait(10);
+		  waitTillElementVisible(Home.datastructureDropdown, 30);
 		  System.out.println("Negative Flow is verified successfully for " + link);
 		  click(Home.datastructureDropdown); 
 		  }
@@ -75,8 +76,7 @@ public void i_verify_the_error_message_when_click_on_Data_structure_options_by_o
 	
 	String actual = getText(Home.alertMessage).replaceAll("\n", "").replaceAll("\r", "");
 	Assert.assertEquals("You are not logged in", actual);
-
-	implicitWait(10);
+	waitTillElementVisible(Home.datastructureDropdown, 30);
 	System.out.println("Negative Flow is verified successfully for " + link);
 	click(Home.datastructureDropdown);
 	}
@@ -95,7 +95,6 @@ public void i_verify_the_error_message_when_click_on_Data_structure_options_by_o
 		  String actual = getText(Home.alertMessage).replaceAll("\n","").replaceAll("\r", ""); 
 		  Assert.assertEquals("You are not logged in", actual);
 		  
-		  implicitWait(10);
 	}
 	}
 
@@ -115,8 +114,7 @@ public void i_verify_the_error_message_when_click_on_Get_Started_options_Randoml
 		  		  
 		  String actual = getText(Home.alertMessage).replaceAll("\n","").replaceAll("\r", ""); 
 		  Assert.assertEquals("You are not logged in", actual);
-		  
-		  implicitWait(10);
+	
 	}
 	}
 	
