@@ -63,12 +63,13 @@
     </build>
   <dependencies>
   
-        
-		<dependency>
- <groupId>io.qameta.allure</groupId>
- <artifactId>allure-testng</artifactId>
- <version>2.12.1</version>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-testng</artifactId>
+    <version>2.25.0</version>
 </dependency>
+
        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 <dependency>
     <groupId>org.projectlombok</groupId>
@@ -198,12 +199,7 @@
     <version>2.23.0</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
-<dependency>
-    <groupId>io.qameta.allure</groupId>
-    <artifactId>allure-testng</artifactId>
-    <version>2.25.0</version>
-</dependency>
+
 
  </dependencies>
 </project>
