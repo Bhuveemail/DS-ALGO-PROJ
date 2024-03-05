@@ -6,7 +6,7 @@
     <test name="Chrome Test">
         <parameter name="Browser" value="CHROME"/>
            <classes>
-            <class name="Runners.crossBrowserTestRunner"/>
+            <class name="Runners.TestRunner"/>
         </classes>
     </test>
     
