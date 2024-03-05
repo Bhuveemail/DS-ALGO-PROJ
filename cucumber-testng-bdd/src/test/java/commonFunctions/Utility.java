@@ -33,6 +33,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -175,6 +176,14 @@ public void highlightElement(WebElement element) throws InterruptedException {
 
 	public void closePopUp() {
 		driver.switchTo().alert().accept();
+	}
+	public void closePopUpIfExists() {
+		try {
+		driver.switchTo().alert().accept();
+		}
+		catch(NoAlertPresentException ex) {
+			System.out.println("No alert");
+		}
 	}
 
 	public static Properties loadProperties() throws FileNotFoundException, IOException {
