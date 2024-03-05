@@ -29,11 +29,12 @@ import commonFunctions.Utility;
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
-    @Override
-    @DataProvider(parallel = false)
-    public Object[][] scenarios() {
-        return super.scenarios();
-    }
+	/*
+	 * @Override
+	 * 
+	 * @DataProvider(parallel = false) public Object[][] scenarios() { return
+	 * super.scenarios(); }
+	 */
     @BeforeMethod
     public void loadConfig() throws FileNotFoundException, IOException {
     	BaseTest.configProps=Utility.loadProperties();
