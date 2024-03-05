@@ -24,17 +24,11 @@ import commonFunctions.Utility;
             	"json:target/cucumber-reports/cucumber.json",
             	"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@jenkins"
+        tags = "@signin_page_positive"
         		
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
-	/*
-	 * @Override
-	 * 
-	 * @DataProvider(parallel = false) public Object[][] scenarios() { return
-	 * super.scenarios(); }
-	 */
     @BeforeMethod
     public void loadConfig() throws FileNotFoundException, IOException {
     	BaseTest.configProps=Utility.loadProperties();
