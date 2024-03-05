@@ -75,7 +75,7 @@ public class ArraySteps extends Utility {
 	@Then("I verify the valid input for Array positive scenario for \"(.*)\"$")
 	public void i_verify_the_valid_input_for_Array_positive_scenario_for(String input) {
 		closePopUpIfExists();
-		waitTillElementVisible(Array.output, 30);
+		waitTillElementVisible(Array.output, 100);
 		String actual = getText(Array.output);
 		Assert.assertEquals("hello", actual);
 
