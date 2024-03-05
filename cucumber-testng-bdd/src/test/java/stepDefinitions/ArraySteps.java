@@ -87,7 +87,7 @@ public class ArraySteps extends Utility {
 	public void i_verify_the_error_occured_while_submit_for(String error, String input) throws InterruptedException {
 		waitTillElementVisible(Array.submit, 30);
 		click(Array.submit);
-		Thread.sleep(2000);
+		waitTillElementVisible(Array.output, 30);
 		String actual = getText(Array.output).trim();
 		Assert.assertEquals(error, actual);
 		System.out.println("Error - "+error+" is verified successfully for " + input);
