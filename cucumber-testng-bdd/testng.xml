@@ -11,7 +11,7 @@
     </test>
     
       <test name="Firefox Test">
-        <parameter name="Browser" value="Edge"/>
+        <parameter name="Browser" value="FIREFOX"/>
         <classes>
             <class name="Runners.crossBrowserTestRunner"/>
         </classes>
