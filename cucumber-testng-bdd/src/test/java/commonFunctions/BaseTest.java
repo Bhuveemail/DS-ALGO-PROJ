@@ -1,6 +1,7 @@
 package commonFunctions;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,8 +20,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import io.cucumber.java.Scenario;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	
@@ -29,27 +32,58 @@ public class BaseTest {
 	 public static WebDriver driver=null;
 	 
 
-	public static WebDriver invokeBrowser(String Browser) throws FileNotFoundException, IOException {
+	public static WebDriver invokeBrowser(String browser) throws FileNotFoundException, IOException {
 		
 		BaseTest.configProps=Utility.loadProperties();
-	
-		if(Browser.equalsIgnoreCase("Chrome")) {
-	    	System.setProperty("webdriver.chrome.driver",configProps.getProperty("chromePath"));
-	        driver = new ChromeDriver();
-	        System.out.println("Invoke Browser - "+Browser);
-	    	}
-		else if (Browser.equalsIgnoreCase("Firefox")) {
-    		System.setProperty("webdriver.gecko.driver", configProps.getProperty("FireFoxPath"));
-    		
-    		driver=new FirefoxDriver();
-    		System.out.println("Invoke Browser - "+Browser);
-        	}
-    	else if(Browser.equalsIgnoreCase("Edge")){
-    		System.setProperty("webdriver.edge.driver",configProps.getProperty("EdgePath"));
-    		driver = new EdgeDriver();
-    		System.out.println("Invoke Browser - "+Browser);
-    	}
-		return driver;
+		
+
+			if (browser.equalsIgnoreCase("firefox")) {
+
+				//Loggerload.info("Testing on firefox");
+
+				WebDriverManager.firefoxdriver().setup();
+
+				driver = new FirefoxDriver();
+
+
+			} else if (browser.equalsIgnoreCase("chrome")) {
+
+				//Loggerload.info("Testing on chrome");
+
+				WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
+
+				driver = new ChromeDriver();
+
+
+			} else if (browser.equalsIgnoreCase("safari")) {
+
+				//Loggerload.info("Testing on safari");
+
+				WebDriverManager.safaridriver().setup();
+
+				driver = new SafariDriver();
+
+
+			} else if (browser.equalsIgnoreCase("edge")) {
+
+				//Loggerload.info("Testing on Edge");
+
+				WebDriverManager.edgedriver().setup();
+
+				driver = new EdgeDriver();
+
+
+			}
+
+			// Set Page load timeout
+
+			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+
+			driver.manage().window().maximize();
+
+			return driver;
+
+		
 	}
 
 	public static List<Map<String, String>> getData(String excelFilePath, String sheetName)
