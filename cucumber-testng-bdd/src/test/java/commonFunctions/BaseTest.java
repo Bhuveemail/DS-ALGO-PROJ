@@ -18,19 +18,23 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	
+
 	public static Properties configProps = new Properties();
-	public static Scenario scenario;	
-	 public static WebDriver driver=null;
-	 
+	public static Scenario scenario;
+	public static WebDriver driver = null;
+
+
 
 	public static WebDriver invokeBrowser(String browser) throws FileNotFoundException, IOException {
 		
@@ -40,38 +44,57 @@ public class BaseTest {
 			if (browser.equalsIgnoreCase("firefox")) {
 
 				//Loggerload.info("Testing on firefox");
-
-				WebDriverManager.firefoxdriver().setup();
-
-				driver = new FirefoxDriver();
-
-
-			} else if (browser.equalsIgnoreCase("chrome")) {
+				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+				{				
+				FirefoxOptions options = new FirefoxOptions();
+		        options.addArguments("-headless");
+		        driver = new FirefoxDriver(options);
+		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+				}
+				else {
+					WebDriverManager.firefoxdriver().setup();
+					driver = new FirefoxDriver();
+					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+				}
+				
+				} else if (browser.equalsIgnoreCase("chrome")) {
 
 				//Loggerload.info("Testing on chrome");
-
-				WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
-
-				driver = new ChromeDriver();
-
+					if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+					{				
+					ChromeOptions options = new ChromeOptions();
+			        options.addArguments("-headless");
+			        driver = new ChromeDriver(options);	
+			        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+					}
+					else {
+						WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
+						driver = new ChromeDriver();
+						System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+					}
+					
 
 			} else if (browser.equalsIgnoreCase("safari")) {
-
-				//Loggerload.info("Testing on safari");
-
-				WebDriverManager.safaridriver().setup();
-
-				driver = new SafariDriver();
-
+				
+					WebDriverManager.safaridriver().setup();
+					driver = new SafariDriver();
+					System.out.println("Launching - "+browser+" Browser");
 
 			} else if (browser.equalsIgnoreCase("edge")) {
 
-				//Loggerload.info("Testing on Edge");
-
-				WebDriverManager.edgedriver().setup();
-
-				driver = new EdgeDriver();
-
+				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+				{				
+				EdgeOptions options = new EdgeOptions();
+		        options.addArguments("-headless");
+		        driver = new EdgeDriver(options); 
+		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+				}
+				else {
+					WebDriverManager.edgedriver().setup();
+					driver = new EdgeDriver();
+					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+				}
+				 
 
 			}
 
@@ -98,7 +121,8 @@ public class BaseTest {
 		return readSheet(sheet);
 	}
 
-	private static Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
+	private static Sheet getSheetByName(String excelFilePath, String sheetName)
+			throws IOException, InvalidFormatException {
 		Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
 		return sheet;
 	}
@@ -142,10 +166,9 @@ public class BaseTest {
 				for (int currentColumn = 0; currentColumn < totalColumn; currentColumn++) {
 					Cell cell;
 					cell = row.getCell(currentColumn, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-					
-						return row.getRowNum();
 
-					
+					return row.getRowNum();
+
 				}
 			}
 		}
@@ -160,20 +183,18 @@ public class BaseTest {
 		LinkedHashMap<String, String> columnMapdata = new LinkedHashMap<String, String>();
 		Cell cell;
 		if (row == null) {
-			
-				String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(currentColumn)
-						.getStringCellValue();
-				columnMapdata.put(columnHeaderName, "");
-			
+
+			String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(currentColumn).getStringCellValue();
+			columnMapdata.put(columnHeaderName, "");
+
 		} else {
 			cell = row.getCell(currentColumn, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 			String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex())
 					.getStringCellValue();
 			columnMapdata.put(columnHeaderName, cell.getStringCellValue());
-			}
-		
+		}
+
 		return columnMapdata;
 	}
-	
-	
+
 }

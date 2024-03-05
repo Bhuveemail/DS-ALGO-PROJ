@@ -1,4 +1,4 @@
-@linkedListPage @jenkin
+@linkedListPage @jenkins
 Feature: Verify the linkedList functionalities
 
  @linkedList_page_Introduction

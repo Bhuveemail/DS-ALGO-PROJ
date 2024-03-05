@@ -1,4 +1,4 @@
-@Graphpage @jenkin
+@Graphpage @jenkins
 Feature: Verify the graph functionalities
 
   @Graph_page1

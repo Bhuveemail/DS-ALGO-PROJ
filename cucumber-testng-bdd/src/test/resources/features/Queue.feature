@@ -1,4 +1,4 @@
-@queuePage @jenkin
+@queuePage @jenkins
 Feature: Verify the queue functionalities
 
   @queue_page_Implementation_queue

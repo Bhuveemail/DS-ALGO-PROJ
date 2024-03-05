@@ -1,4 +1,4 @@
-@signinPage @jenkin
+@signinPage @jenkins
 Feature:  Verify the signin functionalities
 
   @signin_page_positive

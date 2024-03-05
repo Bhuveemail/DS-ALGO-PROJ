@@ -1,4 +1,4 @@
-@Stackpage @jenkin
+@Stackpage @jenkins
 Feature: Verify the stack functionalities
 
   @stack_page_Operations_in_Stack

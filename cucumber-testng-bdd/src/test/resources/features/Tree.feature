@@ -1,4 +1,4 @@
-@Treepage @jenkin
+@Treepage @jenkins
 Feature: Verify the tree functionalities
 
   @tree_page_Overview_of_Trees

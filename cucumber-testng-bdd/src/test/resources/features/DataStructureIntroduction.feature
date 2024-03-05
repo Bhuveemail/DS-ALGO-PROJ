@@ -1,4 +1,4 @@
-@datastructurePage @jenkin
+@datastructurePage @jenkins
 Feature: Verify the Data Structure functionalities
 
   @datastructure_page_Time_Complexity

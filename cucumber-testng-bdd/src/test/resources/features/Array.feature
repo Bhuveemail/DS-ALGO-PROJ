@@ -1,4 +1,4 @@
-@array @jenkin
+@array @jenkins
 Feature: Verify the array functionalities
 
  @array_page_arrays_python
