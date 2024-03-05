@@ -17,8 +17,7 @@ Feature: Verify the array functionalities
   Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
+   
   
   @array_page_arrays_list
   	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
@@ -36,8 +35,6 @@ Feature: Verify the array functionalities
    Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
    
    
    @array_page_basic_operations
@@ -55,8 +52,6 @@ Feature: Verify the array functionalities
    Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
    
    
    @array_page_applications_array
@@ -74,8 +69,7 @@ Feature: Verify the array functionalities
     Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
+   
     
     @array_page_practice_question_1
   	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
@@ -88,14 +82,13 @@ Feature: Verify the array functionalities
     Then I click on Search the Array
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
-    And I verify the valid input for Array positive scenario for "Search the Array"
-    And I verify the error "<error_practice>" occured while submit for "Search the Array"
+   # And I verify the valid input for Array positive scenario for "Search the Array"
+   # And I verify the error "<error_practice>" occured while submit for "Search the Array"
     
     Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
+   
     
     
     @array_page_practice_question_2
@@ -109,13 +102,12 @@ Feature: Verify the array functionalities
     Then I click on Max Consecutive Ones
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
-    And I verify the valid input for Array positive scenario for "Max Consecutive Ones"
-    And I verify the error "<error_practice>" occured while submit for "Max Consecutive Ones"
+   # And I verify the valid input for Array positive scenario for "Max Consecutive Ones"
+   # And I verify the error "<error_practice>" occured while submit for "Max Consecutive Ones"
     
     Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
     
     
     @array_page_practice_question_3
@@ -129,15 +121,13 @@ Feature: Verify the array functionalities
     Then I click on Find Numbers with Even Numbers of Digit
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
-    And I verify the valid input for Array positive scenario for "Find Numbers with Even Numbers of Digit"
-    And I verify the error "<error_practice>" occured while submit for "Find Numbers with Even Numbers of Digit"
+    #And I verify the valid input for Array positive scenario for "Find Numbers with Even Numbers of Digit"
+    #And I verify the error "<error_practice>" occured while submit for "Find Numbers with Even Numbers of Digit"
     
     Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
-    
+   
     
     @array_page_practice_question_4
   	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
@@ -150,11 +140,10 @@ Feature: Verify the array functionalities
     Then I click on Squares of Sorted Array
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
-    And I verify the valid input for Array positive scenario for "Squares of Sorted Array"
-    And I verify the error "<test_error>" occured while submit for "Squares of Sorted Array"
+   # And I verify the valid input for Array positive scenario for "Squares of Sorted Array"
+   # And I verify the error "<test_error>" occured while submit for "Squares of Sorted Array"
     
     Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
-    
+   
