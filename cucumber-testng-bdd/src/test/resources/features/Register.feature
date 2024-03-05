@@ -1,4 +1,4 @@
-@registerPage @test
+@registerPage @jenkin
 Feature:  Verify the register functionalities
 
   @register_page_positive

@@ -1,4 +1,4 @@
-@homePage @test
+@homePage @jenkin
 Feature: Verify the homepage functionalities
 
     

@@ -87,6 +87,11 @@ public class StackSteps extends Utility {
 	public void i_click_on_Applications() {
 		click(Stack.Applications);
 	}
+	
+	@Then("I click on Applications Link")
+	public void i_click_on_Applications_Link() {
+		click(Stack.ApplicationsLink);
+	}
       
 	@Then("I click on Practice Questions of Stack")
 	public void i_click_on_Practice_Questions_of_Stack() {

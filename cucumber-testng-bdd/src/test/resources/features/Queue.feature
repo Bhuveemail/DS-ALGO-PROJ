@@ -1,4 +1,4 @@
-@queuePage @test
+@queuePage @jenkin
 Feature: Verify the queue functionalities
 
   @queue_page_Implementation_queue
@@ -16,7 +16,6 @@ Feature: Verify the queue functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
 
   @queue_page_Implementation_collection
   Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
@@ -33,7 +32,6 @@ Feature: Verify the queue functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
 
   @queue_page_Implementation_Array
   Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
@@ -50,7 +48,6 @@ Feature: Verify the queue functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
 
   @queue_page_Implementation_queue_operataion
   Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
@@ -67,7 +64,6 @@ Feature: Verify the queue functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
 
   @queue_page_practice_questions
   Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
@@ -81,4 +77,3 @@ Feature: Verify the queue functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |

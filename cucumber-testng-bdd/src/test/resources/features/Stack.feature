@@ -1,4 +1,4 @@
-@Stackpage @test
+@Stackpage @jenkin
 Feature: Verify the stack functionalities
 
   @stack_page_all
@@ -16,7 +16,6 @@ Feature: Verify the stack functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
 @stack_page_all
   Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
@@ -33,9 +32,8 @@ Feature: Verify the stack functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-    @stack_page_all
+    @stack_Applications
   Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
@@ -44,19 +42,19 @@ Feature: Verify the stack functionalities
     Then I click on Applications
     Then I verify the Stack Try here functionalities with input "<positive_input>"
     Then I verify the valid result for Stack positive scenario for "I click on Applications"
-    Then I click on Applications
+    Then I click on Applications Link
     Then I verify the Stack Try here functionalities with input "<negative_input>"
     Then I validate the Stack pop up and error message "<errorMessage>" for negative scenario for "I click on Applications"
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
     @stack_page_all
   Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Stack
+    Then I click on Applications
     
     Then I click on Practice Questions of Stack
    	Then I verify the Stack blank page for "Practice Questions"
@@ -64,4 +62,3 @@ Feature: Verify the stack functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |

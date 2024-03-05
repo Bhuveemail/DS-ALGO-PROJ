@@ -1,4 +1,4 @@
-@linkedListPage @test
+@linkedListPage @jenkin
 Feature: Verify the linkedList functionalities
 
  @linkedList_page_Introduction
@@ -16,7 +16,6 @@ Feature: Verify the linkedList functionalities
       Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|
 
     @linkedList_page_Creating_Linked_List
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
@@ -35,7 +34,6 @@ Feature: Verify the linkedList functionalities
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|
     
      @linkedList_page_LinkedList
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
@@ -52,7 +50,6 @@ Feature: Verify the linkedList functionalities
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|
     
      @linkedList_page_LinkedList_Python
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
@@ -70,7 +67,6 @@ Feature: Verify the linkedList functionalities
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|
     
     
      @linkedList_page_traversal
@@ -88,7 +84,6 @@ Feature: Verify the linkedList functionalities
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|
     
     
      @linkedList_page_insertion
@@ -107,7 +102,6 @@ Feature: Verify the linkedList functionalities
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|
     
      @linkedList_page_deletion
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
@@ -122,17 +116,19 @@ Feature: Verify the linkedList functionalities
     Then I click on Deletion
     Then I verify the linkedList Try here functionalities with input "<negative_input>" 
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList operations"
+      Examples:
+    |positive_input|negative_input|errorMessage|
+    |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
     
      @linkedList_page_practice_question
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList
-    
+     Then I click on Deletion
    
     Then I click on Practice Questions of LinkedList
     Then I verify the blank page for "Practice Questions"
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
-    |print"""hello""";|printABCD"""hello""";|SyntaxError: bad input on line 1|

@@ -9,7 +9,7 @@ public class Graph {
 			public static By GraphGetStarted=By.xpath("//*[@href='graph']");				
 			public static By graph=By.xpath("//*[@href='graph']");
 			public static By graphlink=By.xpath("//*[@href='/graph/graph/']");
-			public static By graphRep=By.xpath("//*[contains(@href, '/graph/graph-representations/')]");
+			public static By graphRep=By.xpath("//*[contains(@href, 'graph-representations')]");
 			public static By practiceQuestions=By.xpath("//*[@href='/graph/practice']");		
 			public static By blankPage=By.xpath("//*[@class='container']");
 			public static By tryHere=By.xpath("//*[@href='/tryEditor']");
