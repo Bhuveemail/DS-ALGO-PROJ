@@ -24,7 +24,7 @@ import commonFunctions.Utility;
             	"json:target/cucumber-reports/cucumber.json",
             	"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@datastructurePage"
+        tags = "@jenkin"
         		
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
