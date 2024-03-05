@@ -1,8 +1,8 @@
 @datastructurePage @jenkin
 Feature: Verify the Data Structure functionalities
 
-  @datastructure_page_all
-  Scenario Outline: Verify Operations in Graph  Functionalities for Positive and Negative Scenarios
+  @datastructure_page_Time_Complexity
+  Scenario Outline: Verify Time Complexity of DataStructure Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     When I click on get started on DataStructure
@@ -19,8 +19,8 @@ Feature: Verify the Data Structure functionalities
       | print"""hello"""; | print-"""hello"""; | TypeError: bad operand type for unary -: 'str' on line 1 |
   
       
-     @datastructure_page_all
-  Scenario Outline: Verify Operations in Graph  Functionalities for Positive and Negative Scenarios
+    @datastructure_page_Practice_Questions 
+    Scenario Outline: Verify Practice Questions of DataStructure  Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     When I click on get started on DataStructure

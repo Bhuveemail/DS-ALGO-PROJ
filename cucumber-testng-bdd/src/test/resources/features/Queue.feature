@@ -18,7 +18,7 @@ Feature: Verify the queue functionalities
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
 
   @queue_page_Implementation_collection
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Implementation using collections in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on queue
@@ -34,7 +34,7 @@ Feature: Verify the queue functionalities
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
 
   @queue_page_Implementation_Array
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Implementation using array Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on queue
@@ -50,7 +50,7 @@ Feature: Verify the queue functionalities
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
 
   @queue_page_Implementation_queue_operataion
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Implementation Queue Operations Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on queue
@@ -66,7 +66,7 @@ Feature: Verify the queue functionalities
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
 
   @queue_page_practice_questions
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Practice Questions of Queue Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on queue

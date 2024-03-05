@@ -2,7 +2,7 @@
 Feature: Verify the array functionalities
 
  @array_page_arrays_python
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Array in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -20,7 +20,7 @@ Feature: Verify the array functionalities
    
   
   @array_page_arrays_list
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Array Using List in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -38,7 +38,7 @@ Feature: Verify the array functionalities
    
    
    @array_page_basic_operations
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Basic Operations in Lists Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -55,7 +55,7 @@ Feature: Verify the array functionalities
    
    
    @array_page_applications_array
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Applications of Array in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -72,7 +72,7 @@ Feature: Verify the array functionalities
    
     
     @array_page_practice_question_1
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Practice Questions of Array in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -92,7 +92,7 @@ Feature: Verify the array functionalities
     
     
     @array_page_practice_question_2
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Max Consecutive Ones Array in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -111,7 +111,7 @@ Feature: Verify the array functionalities
     
     
     @array_page_practice_question_3
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify  Array in Python Find Numbers With Even Numbers of Digit Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array
@@ -130,7 +130,7 @@ Feature: Verify the array functionalities
    
     
     @array_page_practice_question_4
-  	Scenario Outline: Verify Implementation of Array in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Squares of Sorted Array Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on array

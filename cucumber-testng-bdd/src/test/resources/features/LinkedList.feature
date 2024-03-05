@@ -2,7 +2,7 @@
 Feature: Verify the linkedList functionalities
 
  @linkedList_page_Introduction
-  	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Introduction of linkedList Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList
@@ -18,7 +18,7 @@ Feature: Verify the linkedList functionalities
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
 
     @linkedList_page_Creating_Linked_List
-  	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Creating Linked List Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList
@@ -35,7 +35,7 @@ Feature: Verify the linkedList functionalities
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
     
-     @linkedList_page_LinkedList
+     @linkedList_page_Types_of_LinkedList
   	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
@@ -70,7 +70,7 @@ Feature: Verify the linkedList functionalities
     
     
      @linkedList_page_traversal
-  	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Traversal Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList
@@ -87,7 +87,7 @@ Feature: Verify the linkedList functionalities
     
     
      @linkedList_page_insertion
-  	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Insertion Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList
@@ -104,7 +104,7 @@ Feature: Verify the linkedList functionalities
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
     
      @linkedList_page_deletion
-  	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Deletion Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList
@@ -121,7 +121,7 @@ Feature: Verify the linkedList functionalities
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
     
      @linkedList_page_practice_question
-  	Scenario Outline: Verify Implementation of linkedList in Python Functionalities for Positive and Negative Scenarios
+  	Scenario Outline: Verify Practice Questions of linkedList Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on linkedList

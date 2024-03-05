@@ -1,8 +1,8 @@
 @Treepage @jenkin
 Feature: Verify the tree functionalities
 
-  @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  @tree_page_Overview_of_Trees
+  Scenario Outline: Verify Overview of Trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -17,10 +17,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-  @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  @tree_page_Terminologies
+  Scenario Outline: Verify Terminologies Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -34,10 +33,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-  @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+  @tree_page_Types_of_Trees
+  Scenario Outline: Verify Types of Trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -51,10 +49,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Tree_Traversals
+  Scenario Outline: Verify Tree Traversals Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -68,10 +65,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Traversals_Illustration
+  Scenario Outline: Verify Traversals Illustration Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -85,10 +81,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Binary_Trees
+  Scenario Outline: Verify Binary Trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -102,10 +97,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Types_of_Binary_Trees
+  Scenario Outline: Verify Types of Binary Trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -119,10 +113,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Implementation_in_Python
+  Scenario Outline: Verify Implementation in Python Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -136,10 +129,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Binary_Tree_Traversals
+  Scenario Outline: Verify Binary Tree Traversals Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -154,10 +146,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Implementation_of_Binary_Trees
+  Scenario Outline: Verify Implementation of Implementation of Binary Trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -171,10 +162,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Applications_of_Binary_trees
+  Scenario Outline: Verify Applications of Binary trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -188,10 +178,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Binary_Search_Trees
+  Scenario Outline: Verify  Binary Search Trees Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -205,10 +194,9 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |
     
-      @tree_page_all
-  Scenario Outline: Verify Implementation of Queue in Python Functionalities for Positive and Negative Scenarios
+      @tree_page_Implementation_Of_BST
+  Scenario Outline: Verify Implementation of BST Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Tree
@@ -224,4 +212,3 @@ Feature: Verify the tree functionalities
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
-      | print"""hello"""; | printABCD"""hello"""; | SyntaxError: bad input on line 1 |

@@ -2,7 +2,7 @@
 Feature: Verify the graph functionalities
 
   @Graph_page1
-  Scenario Outline: Verify Implementation of Graph in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Implementation of Graph Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Graph
@@ -18,7 +18,7 @@ Feature: Verify the graph functionalities
       | print"""hello"""; | print123"""hello"""; | SyntaxError: bad input on line 1 |
 
   @Graph_page2
-  Scenario Outline: Verify Implementation of Graph in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Graph Representations Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Graph
@@ -34,7 +34,7 @@ Feature: Verify the graph functionalities
       | print"""hello"""; | print123"""hello"""; | SyntaxError: bad input on line 1 |
 
   @Graph_page3
-  Scenario Outline: Verify Implementation of Graph in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Practice Questions of Graph Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Graph

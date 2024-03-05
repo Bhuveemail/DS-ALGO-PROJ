@@ -1,8 +1,8 @@
 @Stackpage @jenkin
 Feature: Verify the stack functionalities
 
-  @stack_page_all
-  Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
+  @stack_page_Operations_in_Stack
+  Scenario Outline: Verify Operations in Stack Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Stack
@@ -17,8 +17,8 @@ Feature: Verify the stack functionalities
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
     
-@stack_page_all
-  Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
+@stack_page_Implementation
+  Scenario Outline: Verify Implementation of Stack Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Stack
@@ -34,7 +34,7 @@ Feature: Verify the stack functionalities
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
     
     @stack_Applications
-  Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
+  Scenario Outline: Verify Applications Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Stack
@@ -49,8 +49,8 @@ Feature: Verify the stack functionalities
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
     
-    @stack_page_all
-  Scenario Outline: Verify Implementation of Stack in Python Functionalities for Positive and Negative Scenarios
+    @stack_page_Practice_Questions
+  Scenario Outline: Verify Practice Questions of Stack Functionalities for Positive and Negative Scenarios
     Given I Launch the Application
     When I login to ds-algo portal
     Then I click on get started on Stack
