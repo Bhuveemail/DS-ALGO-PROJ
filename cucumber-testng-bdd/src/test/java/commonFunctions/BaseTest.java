@@ -1,6 +1,7 @@
 package commonFunctions;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -17,46 +18,95 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.safari.SafariDriver;
 
 import io.cucumber.java.Scenario;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	
+
 	public static Properties configProps = new Properties();
-	public static Scenario scenario;	
-	 public static WebDriver driver;
-	
-		/*
-		 * public static void setUpDriver(String browser) { invokeBrowser (browser); }
-		 */
+	public static Scenario scenario;
+	public static WebDriver driver = null;
+
+
+
+	public static WebDriver invokeBrowser(String browser) throws FileNotFoundException, IOException {
 		
-		 public static void tearDown() {
-		  if(driver!=null)
-			  driver.quit(); 
-		  }
-		 
-		 
-	
-	 
-	public static void invokeBrowser(String Browser) throws FileNotFoundException, IOException {
 		BaseTest.configProps=Utility.loadProperties();
-		if(Browser.equalsIgnoreCase("Chrome")) {
-	    	System.setProperty("webdriver.chrome.driver",configProps.getProperty("chromePath"));
-	        driver = new ChromeDriver();
-	        System.out.println("Invoke Browser - "+Browser);
-	    	}
-		else if (Browser.equalsIgnoreCase("Firefox")) {
-    		System.setProperty("webdriver.gecko.driver", configProps.getProperty("FireFoxPath"));
-    		Utility.driver = new FirefoxDriver();
-    		System.out.println("Invoke Browser - "+Browser);
-        	}
-    	else if(Browser.equalsIgnoreCase("Edge")){
-    		System.setProperty("webdriver.edge.driver",configProps.getProperty("EdgePath"));
-    		Utility.driver = new EdgeDriver();
-    		System.out.println("Invoke Browser - "+Browser);
-    	}
+		
+
+			if (browser.equalsIgnoreCase("firefox")) {
+
+				//Loggerload.info("Testing on firefox");
+				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+				{				
+				FirefoxOptions options = new FirefoxOptions();
+		        options.addArguments("-headless");
+		        driver = new FirefoxDriver(options);
+		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+				}
+				else {
+					WebDriverManager.firefoxdriver().setup();
+					driver = new FirefoxDriver();
+					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+				}
+				
+				} else if (browser.equalsIgnoreCase("chrome")) {
+
+				//Loggerload.info("Testing on chrome");
+					if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+					{				
+					ChromeOptions options = new ChromeOptions();
+			        options.addArguments("-headless");
+			        driver = new ChromeDriver(options);	
+			        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+					}
+					else {
+						WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
+						driver = new ChromeDriver();
+						System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+					}
+					
+
+			} else if (browser.equalsIgnoreCase("safari")) {
+				
+					WebDriverManager.safaridriver().setup();
+					driver = new SafariDriver();
+					System.out.println("Launching - "+browser+" Browser");
+
+			} else if (browser.equalsIgnoreCase("edge")) {
+
+				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+				{				
+				EdgeOptions options = new EdgeOptions();
+		        options.addArguments("-headless");
+		        driver = new EdgeDriver(options); 
+		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+				}
+				else {
+					WebDriverManager.edgedriver().setup();
+					driver = new EdgeDriver();
+					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+				}
+				 
+
+			}
+
+			// Set Page load timeout
+
+			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+
+			driver.manage().window().maximize();
+
+			return driver;
+
+		
 	}
 
 	public static List<Map<String, String>> getData(String excelFilePath, String sheetName)
@@ -71,7 +121,8 @@ public class BaseTest {
 		return readSheet(sheet);
 	}
 
-	private static Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
+	private static Sheet getSheetByName(String excelFilePath, String sheetName)
+			throws IOException, InvalidFormatException {
 		Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
 		return sheet;
 	}
@@ -84,7 +135,7 @@ public class BaseTest {
 	private static Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
 		return WorkbookFactory.create(new File(excelFilePath));
 	}
-
+//
 	private static List<Map<String, String>> readSheet(Sheet sheet) {
 		Row row;
 		int totalRow = sheet.getPhysicalNumberOfRows();
@@ -115,10 +166,9 @@ public class BaseTest {
 				for (int currentColumn = 0; currentColumn < totalColumn; currentColumn++) {
 					Cell cell;
 					cell = row.getCell(currentColumn, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-					
-						return row.getRowNum();
 
-					
+					return row.getRowNum();
+
 				}
 			}
 		}
@@ -133,20 +183,18 @@ public class BaseTest {
 		LinkedHashMap<String, String> columnMapdata = new LinkedHashMap<String, String>();
 		Cell cell;
 		if (row == null) {
-			
-				String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(currentColumn)
-						.getStringCellValue();
-				columnMapdata.put(columnHeaderName, "");
-			
+
+			String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(currentColumn).getStringCellValue();
+			columnMapdata.put(columnHeaderName, "");
+
 		} else {
 			cell = row.getCell(currentColumn, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 			String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex())
 					.getStringCellValue();
 			columnMapdata.put(columnHeaderName, cell.getStringCellValue());
-			}
-		
+		}
+
 		return columnMapdata;
 	}
-	
-	
+
 }

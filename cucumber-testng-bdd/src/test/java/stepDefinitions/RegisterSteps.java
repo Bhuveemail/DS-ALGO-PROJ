@@ -16,6 +16,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.Home;
+import pages.LinkedList;
 import pages.Register;
 import pages.SignIn;
 
@@ -29,7 +30,7 @@ public class RegisterSteps extends Utility {
 	@When("I click on register link")
 	public void i_click_on_register_link() throws InvalidFormatException, IOException {
 		click(Register.registerLink);
-	}
+	}//
 
 	@Then("I verify the user name password confirm password register button and Login link on Register page")
 	public void i_verify_the_user_name_password_confirm_password_register_button_and_login_link_on_register_page() {
@@ -67,7 +68,7 @@ public class RegisterSteps extends Utility {
 		sendText(Register.password, password);
 		sendText(Register.confirmationPassword, confirmationpassword);
 		click(Register.registerButton);
-		implicitWait(20);
+		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
 		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
@@ -81,7 +82,7 @@ public class RegisterSteps extends Utility {
 		sendText(Register.password, password);
 		sendText(Register.confirmationPassword, confirmationpassword);
 		click(Register.registerButton);
-		implicitWait(20);
+		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
 		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
@@ -95,7 +96,7 @@ public class RegisterSteps extends Utility {
 		sendText(Register.password, password);
 		sendText(Register.confirmationPassword, confirmationpassword);
 		click(Register.registerButton);
-		implicitWait(20);
+		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
 		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
@@ -109,7 +110,7 @@ public class RegisterSteps extends Utility {
 		sendText(Register.password, password);
 		sendText(Register.confirmationPassword, confirmationpassword);
 		click(Register.registerButton);
-		implicitWait(20);
+		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
 		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);

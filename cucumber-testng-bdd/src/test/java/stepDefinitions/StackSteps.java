@@ -26,7 +26,7 @@ public class StackSteps extends Utility {
 
 //	@After
 //	public static void afterAll() throws Throwable {
-//		driver.quit();
+//		driver.quit();//
 //	}
 
 	@Then("I verify the Stack box displays")
@@ -57,10 +57,8 @@ public class StackSteps extends Utility {
 		String actual = getText(Stack.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -72,7 +70,7 @@ public class StackSteps extends Utility {
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+
 
 	}
 
@@ -89,6 +87,11 @@ public class StackSteps extends Utility {
 	public void i_click_on_Applications() {
 		click(Stack.Applications);
 	}
+	
+	@Then("I click on Applications Link")
+	public void i_click_on_Applications_Link() {
+		click(Stack.ApplicationsLink);
+	}
       
 	@Then("I click on Practice Questions of Stack")
 	public void i_click_on_Practice_Questions_of_Stack() {
@@ -102,10 +105,8 @@ public class StackSteps extends Utility {
 		String actual = getText(Stack.blankPage);
 		Assert.assertEquals("", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 	@Then("I verify the Stack valid result for positive scenario")

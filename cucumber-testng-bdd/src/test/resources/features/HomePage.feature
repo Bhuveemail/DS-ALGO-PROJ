@@ -1,4 +1,4 @@
-@homePage @regression 
+@homePage @jenkins
 Feature: Verify the homepage functionalities
 
     

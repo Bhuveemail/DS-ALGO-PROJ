@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
@@ -32,6 +33,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -40,6 +42,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -48,6 +52,7 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import pages.Array;
 import pages.Queue;
+import pages.SignIn;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -63,6 +68,9 @@ public class Utility extends BaseTest {
 		driver.get(url);
 	}
 
+	public static void tearDown() {
+		driver.quit();
+	}
 	public void implicitWait(long time) {
 
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
@@ -137,14 +145,13 @@ public void highlightElement(WebElement element) throws InterruptedException {
 		Assert.assertEquals(true, actual);
 		click(Queue.tryHere);
 
-		implicitWait(10);
+		waitTillElementVisible(Queue.run, 30);
 		driver.switchTo().activeElement().sendKeys(Keys.chord(Keys.chord(Keys.CONTROL + "A")));
 		driver.switchTo().activeElement().sendKeys(Keys.CLEAR);
 		driver.switchTo().activeElement().sendKeys(input);
 
 		click(Queue.run);
 
-		implicitWait(10);
 	}
 
 	public void IdentationEditorBox() throws AWTException {
@@ -157,18 +164,26 @@ public void highlightElement(WebElement element) throws InterruptedException {
 		robot.keyRelease(KeyEvent.VK_A);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_X);
-		implicitWait(0);
+		
 
 	}
 
 	public void ArrayRunEditor(String input) {
 		driver.switchTo().activeElement().sendKeys(input);
 		click(Array.run);
-		implicitWait(10);
+		
 	}
 
 	public void closePopUp() {
 		driver.switchTo().alert().accept();
+	}
+	public void closePopUpIfExists() {
+		try {
+		driver.switchTo().alert().accept();
+		}
+		catch(NoAlertPresentException ex) {
+			System.out.println("No alert");
+		}
 	}
 
 	public static Properties loadProperties() throws FileNotFoundException, IOException {
@@ -176,7 +191,7 @@ public void highlightElement(WebElement element) throws InterruptedException {
 		String configPath = "src/test/resources/config.properties";
 		configProps.load(new FileInputStream(configPath));
 		return configProps;
-
+//
 	}
 
 	public void takeScreenshot(Scenario scenario) {
@@ -184,6 +199,11 @@ public void highlightElement(WebElement element) throws InterruptedException {
 
 		byte[] src = ts.getScreenshotAs(OutputType.BYTES);
 		scenario.attach(src, "image/png", "screenshot");
+	}
+	
+	public void waitTillElementVisible(By element, int time) {
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(element)); 	
 	}
 
 }

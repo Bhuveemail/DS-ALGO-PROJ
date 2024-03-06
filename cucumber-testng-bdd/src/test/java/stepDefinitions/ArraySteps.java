@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-
+import commonFunctions.BaseTest;
 import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,7 +17,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.Array;
-
+import pages.Queue;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +25,6 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 
 public class ArraySteps extends Utility {
-
 
 	@Then("I verify the array box displays")
 	public void i_verify_the_array_box_displays() {
@@ -62,38 +61,38 @@ public class ArraySteps extends Utility {
 	
 	@Then("I verify the valid result for Array positive scenario for \"(.*)\"$")
 	public void i_verify_the_valid_result_for_Array_positive_scenario_for(String input) {
-		implicitWait(10);
+		waitTillElementVisible(Array.output, 30);
 		String actual = getText(Array.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
+	
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
+		backWindow();
 		
 	}
-	
+	//
 	@Then("I verify the valid input for Array positive scenario for \"(.*)\"$")
 	public void i_verify_the_valid_input_for_Array_positive_scenario_for(String input) {
-		implicitWait(10);
+		closePopUpIfExists();
+		waitTillElementVisible(Array.output, 30);
 		String actual = getText(Array.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 	
 		
 	}
 	@Then("I verify the error \"(.*)\" occured while submit for \"(.*)\"$")
 	public void i_verify_the_error_occured_while_submit_for(String error, String input) throws InterruptedException {
-		implicitWait(30);
+		waitTillElementVisible(Array.submit, 30);
 		click(Array.submit);
-		Thread.sleep(2000);
+		waitTillElementVisible(Array.output, 30);
 		String actual = getText(Array.output).trim();
 		Assert.assertEquals(error, actual);
 		System.out.println("Error - "+error+" is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
+		
 
 	}
 	 
@@ -101,13 +100,14 @@ public class ArraySteps extends Utility {
 
 	@Then("I validate the Array pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_Array_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
+		
 		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+		
 
 	}
 

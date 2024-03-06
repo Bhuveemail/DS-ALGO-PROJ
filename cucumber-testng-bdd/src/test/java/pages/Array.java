@@ -9,10 +9,10 @@ public class Array {
 	public static By ArrayCard=By.xpath("//*[@class='card-title'][text()='Array']");
 	public static By ArrayGetStarted=By.xpath("//*[@href='array']");
 	public static By arraysinpython=By.xpath("//*[@href='arrays-in-python']");
-	public static By arraysinpythonLink=By.xpath("//*[@href='/array/arrays-in-python/']");
-	public static By arrayList=By.xpath("//*[@href='/array/arrays-using-list/']");
-	public static By basicoperlist=By.xpath("//*[@href='/array/basic-operations-in-lists/']");
-	public static By appofarray=By.xpath("//*[@href='/array/applications-of-array/']");
+	public static By arraysinpythonLink=By.xpath("//*[@href='arrays-in-python']");
+	public static By arrayList=By.xpath("//*[@href='arrays-using-list']");
+	public static By basicoperlist=By.xpath("//*[@href='basic-operations-in-lists']");
+	public static By appofarray=By.xpath("//*[@href='applications-of-array']");
 	public static By practiceQues=By.xpath("//*[@href='/array/practice']");
 	public static By searchArray=By.xpath("//*[@href='/question/1']");
 	public static By maxConsecutiveOnes=By.xpath("//*[@href='/question/2']");

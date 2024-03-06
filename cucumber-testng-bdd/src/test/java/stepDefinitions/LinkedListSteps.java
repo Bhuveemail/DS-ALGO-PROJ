@@ -14,6 +14,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.SignIn;
+import pages.Home;
 import pages.LinkedList;
 
 import java.util.concurrent.TimeUnit;
@@ -28,7 +29,7 @@ public class LinkedListSteps extends Utility{
 		Assert.assertEquals("LinkedList", linkedListBoxText);
 
 	}
-
+//
 	@Then("I click on get started on linkedList")
 	public void i_click_on_get_started_on_linkedList() {
 		click(LinkedList.GetStarted);
@@ -65,10 +66,10 @@ public class LinkedListSteps extends Utility{
 		Assert.assertEquals(true, actual);
 		click(LinkedList.tryHere);
 		String text = readText(file);
-		implicitWait(10);
+		waitTillElementVisible(LinkedList.run, 30);
 		driver.switchTo().activeElement().sendKeys(text);
 		click(LinkedList.run);
-		implicitWait(10);
+	
 
 	}
 
@@ -83,10 +84,9 @@ public class LinkedListSteps extends Utility{
 		String actual = getText(LinkedList.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
+		
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -98,7 +98,7 @@ public class LinkedListSteps extends Utility{
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+	
 
 	}
 

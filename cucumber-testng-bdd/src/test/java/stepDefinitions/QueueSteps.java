@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
-
+import commonFunctions.LoggerLoad;
 import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -32,13 +32,14 @@ public class QueueSteps extends Utility {
 	public void i_verify_the_queue_box_displays() {
 		String queueBoxText = getText(Queue.QueueCard);
 		Assert.assertEquals("Queue", queueBoxText);
-		
+		//
 	}
 
 	@Then("I click on get started on queue")
 	public void i_click_on_get_started_on_queue() {
 		click(Queue.QueueGetStarted);
 		System.out.println("Queue Get Started Button Clicked");
+		LoggerLoad.info("Queue Get Started Button Clicked");
 		System.out.println("-------------------------------------------------------");
 		
 	}
@@ -56,10 +57,8 @@ public class QueueSteps extends Utility {
 		String actual = getText(Queue.output);
 		Assert.assertEquals("hello", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 
@@ -73,7 +72,7 @@ public class QueueSteps extends Utility {
 		System.out.println("Negative Flow is verified successfully for " + input);
 		System.out.println("-------------------------------------------------------");
 		backWindow();
-		implicitWait(10);
+	
 
 	}
 
@@ -109,10 +108,8 @@ public class QueueSteps extends Utility {
 		String actual = getText(Queue.blankPage);
 		Assert.assertEquals("", actual);
 
-		implicitWait(10);
 		System.out.println("Positive Flow is verified successfully for " + input);
 		backWindow();
-		implicitWait(10);
 
 	}
 	@Then("I verify the queue valid result for positive scenario")

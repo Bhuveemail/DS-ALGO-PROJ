@@ -1,4 +1,4 @@
-@registerPage @regression
+@registerPage @jenkins
 Feature:  Verify the register functionalities
 
   @register_page_positive

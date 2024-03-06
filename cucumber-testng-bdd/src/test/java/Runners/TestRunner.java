@@ -10,6 +10,7 @@ import java.util.Properties;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
@@ -20,22 +21,23 @@ import commonFunctions.Utility;
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions"}, 
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-        		"json:target/cucumber-reports/cucumber.json",
+            	"json:target/cucumber-reports/cucumber.json",
+            	"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@stack_page_all"
+        tags = "@jenkins"
+        		
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
-    @Override
-    @DataProvider(parallel = false)
-    public Object[][] scenarios() {
-        return super.scenarios();
-    }
     @BeforeMethod
     public void loadConfig() throws FileNotFoundException, IOException {
     	BaseTest.configProps=Utility.loadProperties();
     	
     }
+    @AfterTest
+	public void tear() {
+		Utility.tearDown();
+	}
     
     
     

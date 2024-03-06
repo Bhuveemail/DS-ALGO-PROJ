@@ -30,7 +30,9 @@ public class SignInSteps extends Utility{
 	 @When("I login to ds-algo portal")
 	    public void i_login_to_ds_algo_portal() throws InvalidFormatException, IOException {
 		  
-	    	implicitWait(10);
+	    	//
+	    	waitTillElementVisible(SignIn.signInLink, 30);
+	    	
 	    	click(SignIn.signInLink);
 	    	
 	    	List<Map<String, String>> excelRows=BaseTest.getData(configProps.getProperty("testData"),"sheet1");
