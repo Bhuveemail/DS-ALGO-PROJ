@@ -22,15 +22,13 @@ import io.cucumber.java.Scenario;
 
 public class Hooks extends Utility {
 
-	static ConfigReader config=new ConfigReader();
-	
 	@After(order = 2)
 	public void takeScreenShotOnFailedScenario(Scenario scenario) {
 		if ((scenario.isFailed())) {
 			System.out.println("Taking screenshot from Cucumber After hook with order=2 if the scenario fails");
 			takeScreenshot(scenario);
 		}
-	}
+	}//
 
 	@AfterStep
 	public void takeScreenScreenshotScenario(Scenario scenario) {
@@ -42,13 +40,13 @@ public class Hooks extends Utility {
 
 	@After(order = 1)
 	public void tear() {
-		if(getDriver()!=null)
-			getDriver().quit();
+		if(driver!=null)
+		driver.quit();
 	}
 
 	@Before
 	public static void before() throws Throwable {
-		config.loadProperties();
+
 		
 		String browser = ConfigReader.getBrowserType();
 		if (browser != null)

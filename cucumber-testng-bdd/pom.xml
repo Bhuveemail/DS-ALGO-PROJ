@@ -22,16 +22,10 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemProperties>
-						<dataproviderthreadcount>30</dataproviderthreadcount>
-						<parallel>tests</parallel>
-						<threadcount>5</threadcount>
    <property>
       <name>allure.results.directory</name>
       <value>${project.build.directory}/allure-results</value>
     </property>
-    <systemPropertyVariable>
-		<browser>chrome</browser>
-	</systemPropertyVariable>
 </systemProperties>
                 </configuration>
             </plugin>
@@ -43,7 +37,7 @@
                 <source>1.8</source>
                 <target>1.8</target>
                 <fork>true</fork>
-                <!-- this is to fix bitbucket pipeline build error due to Lombok processing -->
+                <!-- this is to fix bitbucket pipeline build error due to Lombok processing   dfd-->
                 <compilerArgs>
                     <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
                     <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>

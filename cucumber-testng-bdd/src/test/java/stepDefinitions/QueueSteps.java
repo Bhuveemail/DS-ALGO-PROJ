@@ -32,7 +32,7 @@ public class QueueSteps extends Utility {
 	public void i_verify_the_queue_box_displays() {
 		String queueBoxText = getText(Queue.QueueCard);
 		Assert.assertEquals("Queue", queueBoxText);
-		
+		//
 	}
 
 	@Then("I click on get started on queue")
@@ -66,7 +66,7 @@ public class QueueSteps extends Utility {
 
 	@Then("I validate the queue pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_queue_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = getDriver().switchTo().alert().getText();
+		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);

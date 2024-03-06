@@ -36,8 +36,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     }
     @AfterTest
 	public void tear() {
-    	if(BaseTest.getDriver()!=null)
-    		BaseTest.getDriver().quit();
+		Utility.tearDown();
 	}
     
     

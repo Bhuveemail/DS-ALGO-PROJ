@@ -71,7 +71,7 @@ public class ArraySteps extends Utility {
 		backWindow();
 		
 	}
-	
+	//
 	@Then("I verify the valid input for Array positive scenario for \"(.*)\"$")
 	public void i_verify_the_valid_input_for_Array_positive_scenario_for(String input) {
 		closePopUpIfExists();
@@ -101,7 +101,7 @@ public class ArraySteps extends Utility {
 	@Then("I validate the Array pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_Array_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
 		
-		String alertErrorMessage = getDriver().switchTo().alert().getText();
+		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);

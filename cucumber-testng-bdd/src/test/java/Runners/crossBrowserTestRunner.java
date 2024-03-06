@@ -31,11 +31,11 @@ import commonFunctions.Utility;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
-        glue = {"stepDefinitions","hooks"}, 
+        glue = {"stepDefinitions"}, 
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
-        tags = "@signin_page_positive"
+        tags = "@jenkin"
 )
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 
@@ -54,14 +54,13 @@ public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
     
 		ConfigReader.setBrowserType(browser);
 		BaseTest.configProps.setProperty("browser",browser);
-		//BaseTest.invokeBrowser(browser);
+		//Utility.invokeBrowser(browser);
 
 	}
     
     @AfterTest
 	public void tear() {
-    	if(BaseTest.getDriver()!=null)
-    		BaseTest.getDriver().quit();
+		Utility.tearDown();
 	}
     
     

@@ -41,7 +41,7 @@ public class GraphSteps extends Utility {
 		click(Graph.GraphGetStarted);
 		System.out.println("Graph Get Started Button Clicked");
 		System.out.println("-------------------------------------------------------");
-
+//
 	}
 
 
@@ -70,7 +70,7 @@ public class GraphSteps extends Utility {
 
 	@Then("I validate the Graph pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_Graph_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = getDriver().switchTo().alert().getText();
+		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);

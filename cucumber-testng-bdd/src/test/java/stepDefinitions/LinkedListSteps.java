@@ -29,7 +29,7 @@ public class LinkedListSteps extends Utility{
 		Assert.assertEquals("LinkedList", linkedListBoxText);
 
 	}
-
+//
 	@Then("I click on get started on linkedList")
 	public void i_click_on_get_started_on_linkedList() {
 		click(LinkedList.GetStarted);
@@ -67,7 +67,7 @@ public class LinkedListSteps extends Utility{
 		click(LinkedList.tryHere);
 		String text = readText(file);
 		waitTillElementVisible(LinkedList.run, 30);
-		getDriver().switchTo().activeElement().sendKeys(text);
+		driver.switchTo().activeElement().sendKeys(text);
 		click(LinkedList.run);
 	
 
@@ -92,7 +92,7 @@ public class LinkedListSteps extends Utility{
 
 	@Then("I validate the linkedList pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_linkedList_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = getDriver().switchTo().alert().getText();
+		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);

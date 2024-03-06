@@ -24,7 +24,7 @@ import org.junit.Assert;
 
 public class TreeSteps extends Utility {
 
-//	@After
+//	@After//
 //	public static void afterAll() throws Throwable {
 //		driver.quit();
 //	}
@@ -66,7 +66,7 @@ public class TreeSteps extends Utility {
 
 	@Then("I validate the Tree pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_tree_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = getDriver().switchTo().alert().getText();
+		String alertErrorMessage = driver.switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);
