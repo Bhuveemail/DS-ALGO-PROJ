@@ -65,54 +65,54 @@ public class Utility extends BaseTest {
 
 	public void loadUI(String url) {
 
-		driver.get(url);
+		getDriver().get(url);
 	}
 
-	public static void tearDown() {
-		driver.quit();
-	}
+//	public static void tearDown() {
+//		getDriver().quit();
+//	}
 	public void implicitWait(long time) {
 
-		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 
 	public void maximizeWindow() {
 
-		driver.manage().window().maximize();
+		getDriver().manage().window().maximize();
 	}
 
 	public void refreshWindow() {
 
-		driver.navigate().refresh();
+		getDriver().navigate().refresh();
 	}
 
 	public void backWindow() {
-		driver.navigate().back();
+		getDriver().navigate().back();
 	}
 
 	public void click(By element) {
 
-		driver.findElement(element).click();
+		getDriver().findElement(element).click();
 	}
 
 	public void sendText(By element, String keys) {
 
-		driver.findElement(element).sendKeys(keys);
+		getDriver().findElement(element).sendKeys(keys);
 	}
 
 	public String getText(By element) {
 
-		String text = driver.findElement(element).getText();
+		String text = getDriver().findElement(element).getText();
 		return text;
 	}
 
 	public int getElementSize(By element) {
-		int elementSize=driver.findElements(element).size();
+		int elementSize=getDriver().findElements(element).size();
 		return elementSize;
 	}
 	public Boolean isDisplayed(By element) {
 
-		Boolean presents = driver.findElement(element).isDisplayed();
+		Boolean presents = getDriver().findElement(element).isDisplayed();
 		return presents;
 
 	}
@@ -146,9 +146,9 @@ public void highlightElement(WebElement element) throws InterruptedException {
 		click(Queue.tryHere);
 
 		waitTillElementVisible(Queue.run, 30);
-		driver.switchTo().activeElement().sendKeys(Keys.chord(Keys.chord(Keys.CONTROL + "A")));
-		driver.switchTo().activeElement().sendKeys(Keys.CLEAR);
-		driver.switchTo().activeElement().sendKeys(input);
+		getDriver().switchTo().activeElement().sendKeys(Keys.chord(Keys.chord(Keys.CONTROL + "A")));
+		getDriver().switchTo().activeElement().sendKeys(Keys.CLEAR);
+		getDriver().switchTo().activeElement().sendKeys(input);
 
 		click(Queue.run);
 
@@ -169,17 +169,17 @@ public void highlightElement(WebElement element) throws InterruptedException {
 	}
 
 	public void ArrayRunEditor(String input) {
-		driver.switchTo().activeElement().sendKeys(input);
+		getDriver().switchTo().activeElement().sendKeys(input);
 		click(Array.run);
 		
 	}
 
 	public void closePopUp() {
-		driver.switchTo().alert().accept();
+		getDriver().switchTo().alert().accept();
 	}
 	public void closePopUpIfExists() {
 		try {
-		driver.switchTo().alert().accept();
+		getDriver().switchTo().alert().accept();
 		}
 		catch(NoAlertPresentException ex) {
 			System.out.println("No alert");
@@ -202,7 +202,7 @@ public void highlightElement(WebElement element) throws InterruptedException {
 	}
 	
 	public void waitTillElementVisible(By element, int time) {
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+		 WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(time));
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(element)); 	
 	}
 

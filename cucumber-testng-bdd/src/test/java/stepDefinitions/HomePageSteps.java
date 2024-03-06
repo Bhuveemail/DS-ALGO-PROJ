@@ -51,9 +51,9 @@ public class HomePageSteps extends Utility {
 		int randomNum = 0;
 		  for(int i=1; i<=2; i++) { Random rand = new Random();
 		  randomNum=rand.nextInt(dropdownSize-1+1) + 1; 
-		  String link=driver.findElement(By.xpath("//*[@class='dropdown-menu show']/a["+randomNum+"]")).getText(); 
-		  highlightElement(driver.findElement(By.xpath("//*[@class='dropdown-menu show']/a["+randomNum+"]")));
-		  driver.findElement(By.xpath("//*[@class='dropdown-menu show']/a["+randomNum+"]")).click();
+		  String link=getDriver().findElement(By.xpath("//*[@class='dropdown-menu show']/a["+randomNum+"]")).getText(); 
+		  highlightElement(getDriver().findElement(By.xpath("//*[@class='dropdown-menu show']/a["+randomNum+"]")));
+		  getDriver().findElement(By.xpath("//*[@class='dropdown-menu show']/a["+randomNum+"]")).click();
 		  		  
 		  String actual = getText(Home.alertMessage).replaceAll("\n","").replaceAll("\r", ""); 
 		  Assert.assertEquals("You are not logged in", actual);
@@ -70,9 +70,9 @@ public void i_verify_the_error_message_when_click_on_Data_structure_options_by_o
 	//click(Home.datastructureDropdown);
 	
 	for(int i=1; i<=6; i++) {
-	String link=driver.findElement(By.xpath("//*[@class='dropdown-menu show']/a["+i+"]")).getText();
-	highlightElement(driver.findElement(By.xpath("//*[@class='dropdown-menu show']/a["+i+"]")));
-	driver.findElement(By.xpath("//*[@class='dropdown-menu show']/a["+i+"]")).click();
+	String link=getDriver().findElement(By.xpath("//*[@class='dropdown-menu show']/a["+i+"]")).getText();
+	highlightElement(getDriver().findElement(By.xpath("//*[@class='dropdown-menu show']/a["+i+"]")));
+	getDriver().findElement(By.xpath("//*[@class='dropdown-menu show']/a["+i+"]")).click();
 	
 	String actual = getText(Home.alertMessage).replaceAll("\n", "").replaceAll("\r", "");
 	Assert.assertEquals("You are not logged in", actual);
@@ -89,8 +89,8 @@ public void i_verify_the_error_message_when_click_on_Data_structure_options_by_o
 	
 		  for(int i=1; i<=homeCardsSize-1; i++) { 
 			
-		  highlightElement( driver.findElements(By.xpath("//*[text()='Get Started']")).get(i));
-		  driver.findElements(By.xpath("//*[text()='Get Started']")).get(i).click();
+		  highlightElement( getDriver().findElements(By.xpath("//*[text()='Get Started']")).get(i));
+		  getDriver().findElements(By.xpath("//*[text()='Get Started']")).get(i).click();
 		  		  
 		  String actual = getText(Home.alertMessage).replaceAll("\n","").replaceAll("\r", ""); 
 		  Assert.assertEquals("You are not logged in", actual);
@@ -109,8 +109,8 @@ public void i_verify_the_error_message_when_click_on_Get_Started_options_Randoml
 			  Random rand = new Random();
 		  	  randomNum=rand.nextInt(homeCardsSize-1+1) + 1; 
 		  
-		  highlightElement( driver.findElements(By.xpath("//*[text()='Get Started']")).get(randomNum));
-		  driver.findElements(By.xpath("//*[text()='Get Started']")).get(i).click();
+		  highlightElement( getDriver().findElements(By.xpath("//*[text()='Get Started']")).get(randomNum));
+		  getDriver().findElements(By.xpath("//*[text()='Get Started']")).get(i).click();
 		  		  
 		  String actual = getText(Home.alertMessage).replaceAll("\n","").replaceAll("\r", ""); 
 		  Assert.assertEquals("You are not logged in", actual);

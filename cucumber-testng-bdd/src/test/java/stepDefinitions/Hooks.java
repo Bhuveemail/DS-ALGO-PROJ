@@ -22,6 +22,8 @@ import io.cucumber.java.Scenario;
 
 public class Hooks extends Utility {
 
+	static ConfigReader config=new ConfigReader();
+	
 	@After(order = 2)
 	public void takeScreenShotOnFailedScenario(Scenario scenario) {
 		if ((scenario.isFailed())) {
@@ -40,13 +42,13 @@ public class Hooks extends Utility {
 
 	@After(order = 1)
 	public void tear() {
-		if(driver!=null)
-		driver.quit();
+		if(getDriver()!=null)
+			getDriver().quit();
 	}
 
 	@Before
 	public static void before() throws Throwable {
-
+		config.loadProperties();
 		
 		String browser = ConfigReader.getBrowserType();
 		if (browser != null)

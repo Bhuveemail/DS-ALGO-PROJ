@@ -22,10 +22,16 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemProperties>
+						<dataproviderthreadcount>30</dataproviderthreadcount>
+						<parallel>tests</parallel>
+						<threadcount>5</threadcount>
    <property>
       <name>allure.results.directory</name>
       <value>${project.build.directory}/allure-results</value>
     </property>
+    <systemPropertyVariable>
+		<browser>chrome</browser>
+	</systemPropertyVariable>
 </systemProperties>
                 </configuration>
             </plugin>

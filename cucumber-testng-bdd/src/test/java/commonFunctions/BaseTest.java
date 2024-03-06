@@ -16,6 +16,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,6 +25,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.Optional;
 
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -32,14 +34,14 @@ public class BaseTest {
 
 	public static Properties configProps = new Properties();
 	public static Scenario scenario;
-	public static WebDriver driver = null;
+	public static ThreadLocal<WebDriver> driver=new ThreadLocal<WebDriver>();
 
 
 
-	public static WebDriver invokeBrowser(String browser) throws FileNotFoundException, IOException {
+	public static ThreadLocal<WebDriver> invokeBrowser(@Optional("chrome") String browser) throws FileNotFoundException, IOException {
 		
 		BaseTest.configProps=Utility.loadProperties();
-		
+	
 
 			if (browser.equalsIgnoreCase("firefox")) {
 
@@ -48,12 +50,13 @@ public class BaseTest {
 				{				
 				FirefoxOptions options = new FirefoxOptions();
 		        options.addArguments("-headless");
-		        driver = new FirefoxDriver(options);
+		        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+		        driver.set(new FirefoxDriver(options));
 		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
 				}
 				else {
 					WebDriverManager.firefoxdriver().setup();
-					driver = new FirefoxDriver();
+					driver.set(new FirefoxDriver());
 					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
 				}
 				
@@ -64,12 +67,13 @@ public class BaseTest {
 					{				
 					ChromeOptions options = new ChromeOptions();
 			        options.addArguments("-headless");
-			        driver = new ChromeDriver(options);	
+			        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+			        driver.set(new ChromeDriver(options));	
 			        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
 					}
 					else {
 						WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
-						driver = new ChromeDriver();
+						driver.set(new ChromeDriver());
 						System.out.println("Launching - "+browser.toUpperCase()+" Browser");
 					}
 					
@@ -77,7 +81,7 @@ public class BaseTest {
 			} else if (browser.equalsIgnoreCase("safari")) {
 				
 					WebDriverManager.safaridriver().setup();
-					driver = new SafariDriver();
+					driver.set(new SafariDriver());
 					System.out.println("Launching - "+browser+" Browser");
 
 			} else if (browser.equalsIgnoreCase("edge")) {
@@ -86,29 +90,31 @@ public class BaseTest {
 				{				
 				EdgeOptions options = new EdgeOptions();
 		        options.addArguments("-headless");
-		        driver = new EdgeDriver(options); 
+		        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+		        driver.set(new EdgeDriver(options)); 
 		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
 				}
 				else {
 					WebDriverManager.edgedriver().setup();
-					driver = new EdgeDriver();
+					driver.set(new EdgeDriver());
 					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
 				}
 				 
-
+				
 			}
 
 			// Set Page load timeout
 
-			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-
-			driver.manage().window().maximize();
+			
 
 			return driver;
 
 		
 	}
 
+	public static WebDriver getDriver() {
+		return driver.get();
+	}
 	public static List<Map<String, String>> getData(String excelFilePath, String sheetName)
 			throws InvalidFormatException, IOException {
 		Sheet sheet = getSheetByName(excelFilePath, sheetName);
