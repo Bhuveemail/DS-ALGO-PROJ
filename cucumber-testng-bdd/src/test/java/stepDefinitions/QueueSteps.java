@@ -66,7 +66,7 @@ public class QueueSteps extends Utility {
 
 	@Then("I validate the queue pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_queue_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = driver.switchTo().alert().getText();
+		String alertErrorMessage = getDriver().switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);

@@ -50,7 +50,7 @@ public class DataStructureIntroductionSteps extends Utility {
 		click(DataStructure.tryHere);
 		String text = readText(file);
 		waitTillElementVisible(DataStructure.run, 30);
-		driver.switchTo().activeElement().sendKeys(text);
+		getDriver().switchTo().activeElement().sendKeys(text);
 		
 		click(DataStructure.run);
 	
@@ -109,7 +109,7 @@ public class DataStructureIntroductionSteps extends Utility {
 	
 	@Then("I validate the DataStructure pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_DataStructure_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = driver.switchTo().alert().getText();
+		String alertErrorMessage = getDriver().switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);
