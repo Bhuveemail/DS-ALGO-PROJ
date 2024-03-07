@@ -13,7 +13,10 @@ Feature: Verify the array functionalities
     Then I click on Arrays in Python Link
     Then I verify the Array Try here functionalities with input "<negative_input>"
     Then I validate the Array pop up and error message "<errorMessage>" for negative scenario for "Arrays in Python"
-  	When I log out 
+    When I go back to the screen
+    Then I log out 
+    
+  	
   Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
@@ -31,7 +34,9 @@ Feature: Verify the array functionalities
     Then I click on Arrays Using List
     Then I verify the Array Try here functionalities with input "<negative_input>"
     Then I validate the Array pop up and error message "<errorMessage>" for negative scenario for "Arrays Using List"
-   	When I log out 
+    When I go back to the screen
+    Then I log out 
+    
    Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
@@ -48,7 +53,9 @@ Feature: Verify the array functionalities
     Then I click on Basic Operations in Lists
     Then I verify the Array Try here functionalities with input "<negative_input>"
     Then I validate the Array pop up and error message "<errorMessage>" for negative scenario for "I click on Basic Operations in Lists"
-   	When I log out 
+   	When I go back to the screen
+    Then I log out 
+    
    Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
@@ -65,7 +72,9 @@ Feature: Verify the array functionalities
     Then I click on Applications of Array
     Then I verify the Array Try here functionalities with input "<negative_input>"
     Then I validate the Array pop up and error message "<errorMessage>" for negative scenario for "Applications of Array"
-    When I log out 
+    When I go back to the screen
+    Then I log out 
+     
     Examples:
     |positive_input|negative_input|errorMessage|error_practice|test_error|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1 |Error occurred during submission| No tests were collected|
@@ -83,7 +92,9 @@ Feature: Verify the array functionalities
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
     When I go back to the screen
-    When I log out 
+    When I go back to the screen
+    Then I log out 
+    
    # And I verify the valid input for Array positive scenario for "Search the Array"
    # And I verify the error "<error_practice>" occured while submit for "Search the Array"
     
@@ -105,7 +116,9 @@ Feature: Verify the array functionalities
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
     When I go back to the screen
-    When I log out  
+    When I go back to the screen
+    Then I log out 
+     
    # And I verify the valid input for Array positive scenario for "Max Consecutive Ones"
    # And I verify the error "<error_practice>" occured while submit for "Max Consecutive Ones"
     
@@ -126,7 +139,9 @@ Feature: Verify the array functionalities
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
     When I go back to the screen
-    When I log out 
+    When I go back to the screen
+    Then I log out 
+    
     #And I verify the valid input for Array positive scenario for "Find Numbers with Even Numbers of Digit"
     #And I verify the error "<error_practice>" occured while submit for "Find Numbers with Even Numbers of Digit"
     
@@ -147,7 +162,9 @@ Feature: Verify the array functionalities
     When I clear Editor box
     Then I verify the Array Run functionalities with input "<positive_input>"
     When I go back to the screen
-    When I log out  
+    When I go back to the screen
+    Then I log out 
+    
    # And I verify the valid input for Array positive scenario for "Squares of Sorted Array"
    # And I verify the error "<test_error>" occured while submit for "Squares of Sorted Array"
     
