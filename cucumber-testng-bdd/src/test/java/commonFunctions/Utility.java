@@ -177,7 +177,9 @@ public void highlightElement(WebElement element) throws InterruptedException {
 
 	public void closePopUp() {
 		BaseTest.getDriver().switchTo().alert().accept();
-	}
+		
+		
+			}
 	public void closePopUpIfExists() {
 		try {
 		BaseTest.getDriver().switchTo().alert().accept();
@@ -206,5 +208,8 @@ public void highlightElement(WebElement element) throws InterruptedException {
 //		 WebDriverWait wait = new WebDriverWait((WebDriver) DriverManager.getDrivers(), Duration.ofSeconds(time));
 //		 wait.until(ExpectedConditions.visibilityOfElementLocated(element)); 	
 	}
-
+	public void waitTillElementInVisible(By element, int time) {
+		 WebDriverWait wait = new WebDriverWait((WebDriver) DriverManager.getDrivers(), Duration.ofSeconds(time));
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(element)); 	
+	}
 }

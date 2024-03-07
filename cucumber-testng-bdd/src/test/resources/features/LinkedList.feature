@@ -13,6 +13,8 @@ Feature: Verify the linkedList functionalities
     Then I click on Introduction
     Then I verify the linkedList Try here functionalities with input "<negative_input>"
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList"
+    When I go back to the screen
+    Then I log out 
       Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
@@ -29,7 +31,8 @@ Feature: Verify the linkedList functionalities
     Then  I click on Creating Linked List
     Then I verify the linkedList Try here functionalities with input "<negative_input>"
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using collection"
-
+    When I go back to the screen
+    Then I log out 
     
     Examples:
     |positive_input|negative_input|errorMessage|
@@ -47,6 +50,8 @@ Feature: Verify the linkedList functionalities
     Then I click on Types Of Linked List
     Then I verify the linkedList Try here functionalities with input "<negative_input>"
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using array"
+    When I go back to the screen
+    Then I log out 
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
@@ -63,6 +68,8 @@ Feature: Verify the linkedList functionalities
     Then I click on Implement Linked List In Python
     Then I verify the linkedList Try here functionalities with input "<negative_input>" 
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList operations"
+    When I go back to the screen
+    Then I log out 
 
     Examples:
     |positive_input|negative_input|errorMessage|
@@ -81,6 +88,8 @@ Feature: Verify the linkedList functionalities
     Then I click on Traversal
     Then I verify the linkedList Try here functionalities with input "<negative_input>" 
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList operations"
+    When I go back to the screen
+    Then I log out 
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
@@ -98,6 +107,8 @@ Feature: Verify the linkedList functionalities
     Then I click on Insertion
     Then I verify the linkedList Try here functionalities with input "<negative_input>" 
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList operations"
+    When I go back to the screen
+    Then I log out 
     
     Examples:
     |positive_input|negative_input|errorMessage|
@@ -116,6 +127,8 @@ Feature: Verify the linkedList functionalities
     Then I click on Deletion
     Then I verify the linkedList Try here functionalities with input "<negative_input>" 
     Then I validate the linkedList pop up and error message "<errorMessage>" for negative scenario for "Implementation using linkedList operations"
+    When I go back to the screen
+    Then I log out 
       Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|
@@ -129,6 +142,8 @@ Feature: Verify the linkedList functionalities
    
     Then I click on Practice Questions of LinkedList
     Then I verify the blank page for "Practice Questions"
+    When I go back to the screen
+    Then I log out 
     Examples:
     |positive_input|negative_input|errorMessage|
     |print"""hello""";|print123"""hello""";|SyntaxError: bad input on line 1|

@@ -27,7 +27,7 @@ import commonFunctions.Utility;
             	"json:target/cucumber-reports/cucumber.json",
             	"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"},
-        tags = "@signin_page_positive"
+        tags = "@jenkins"
         		
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

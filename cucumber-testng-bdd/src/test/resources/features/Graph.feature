@@ -12,7 +12,8 @@ Feature: Verify the graph functionalities
     Then I click on Graphlink
     Then I verify the Graph Try here functionalities with input "<negative_input>"
     Then I validate the Graph pop up and error message "<errorMessage>" for negative scenario for "Graph"
-
+	  When I go back to the screen
+    Then I log out 
     Examples: 
       | positive_input    | negative_input       | errorMessage                     |
       | print"""hello"""; | print123"""hello"""; | SyntaxError: bad input on line 1 |
@@ -28,7 +29,9 @@ Feature: Verify the graph functionalities
     Then I click on Graph Representations
     Then I verify the Graph Try here functionalities with input "<negative_input>"
     Then I validate the queue pop up and error message "<errorMessage>" for negative scenario for "Graph Representations"
-
+    When I go back to the screen
+    Then I log out 
+    
     Examples: 
       | positive_input    | negative_input       | errorMessage                     |
       | print"""hello"""; | print123"""hello"""; | SyntaxError: bad input on line 1 |
@@ -41,7 +44,9 @@ Feature: Verify the graph functionalities
     Then I click on Graph
     Then I click on Practice Questions of Graph
     Then I verify the Graph blank page for "Practice Questions"
-
+    When I go back to the screen
+    Then I log out 
+    
     Examples: 
       | positive_input    | negative_input       | errorMessage                     |
       | print"""hello"""; | print123"""hello"""; | SyntaxError: bad input on line 1 |
