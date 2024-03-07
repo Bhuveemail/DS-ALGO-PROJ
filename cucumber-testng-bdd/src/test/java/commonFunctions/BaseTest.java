@@ -24,6 +24,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariOptions;
 
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -31,84 +32,120 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 
 	public static Properties configProps = new Properties();
+	public static String runnerName;
+	
 	public static Scenario scenario;
-	public static WebDriver driver = null;
+
+//
+//
+//
+//	public static WebDriver invokeBrowser(String browser) throws FileNotFoundException, IOException {
+//		
+//		BaseTest.configProps=Utility.loadProperties();
+//		
+//
+//			if (browser.equalsIgnoreCase("firefox")) {
+//
+//				//Loggerload.info("Testing on firefox");
+//				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+//				{				
+//				FirefoxOptions options = new FirefoxOptions();
+//		        options.addArguments("-headless");
+//		        driver = new FirefoxDriver(options);
+//		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+//				}
+//				else {
+//					WebDriverManager.firefoxdriver().setup();
+//					driver = new FirefoxDriver();
+//					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+//				}
+//				
+//				} else if (browser.equalsIgnoreCase("chrome")) {
+//
+//				//Loggerload.info("Testing on chrome");
+//					if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+//					{				
+//					ChromeOptions options = new ChromeOptions();
+//			        options.addArguments("-headless");
+//			        driver = new ChromeDriver(options);	
+//			        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+//					}
+//					else {
+//						WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
+//						driver = new ChromeDriver();
+//						System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+//					}
+//					
+//
+//			} else if (browser.equalsIgnoreCase("safari")) {
+//				WebDriverManager.firefoxdriver().setup();
+//	driver = new FirefoxDriver(); WebDriverManager.edgedriver().setup();
+//	driver = new EdgeDriver();
+//					WebDriverManager.safaridriver().setup();
+//					driver = new SafariDriver();
+//					System.out.println("Launching - "+browser+" Browser");
+//
+//			} else if (browser.equalsIgnoreCase("edge")) {
+//
+//				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+//				{				
+//				EdgeOptions options = new EdgeOptions();
+//		        options.addArguments("-headless");
+//		        driver = new EdgeDriver(options); 
+//		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
+//				}
+//				else {
+//					WebDriverManager.edgedriver().setup();
+//					driver = new EdgeDriver();
+//					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
+//				}
+//				 
+//
+//			}
+//
+//			// Set Page load timeout
+//
+//			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+//
+//			driver.manage().window().maximize();
+//
+//			return driver;
+//
+//		
+//	}
 
 
-
-	public static WebDriver invokeBrowser(String browser) throws FileNotFoundException, IOException {
+	private static ThreadLocal<WebDriver> localDriver = new ThreadLocal<>();
+	
+	
+	public static WebDriver intializeDriver(String browser) {
+		System.out.println("Browser is : "+ browser);
 		
-		BaseTest.configProps=Utility.loadProperties();
 		
-
-			if (browser.equalsIgnoreCase("firefox")) {
-
-				//Loggerload.info("Testing on firefox");
-				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
-				{				
-				FirefoxOptions options = new FirefoxOptions();
-		        options.addArguments("-headless");
-		        driver = new FirefoxDriver(options);
-		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
-				}
-				else {
-					WebDriverManager.firefoxdriver().setup();
-					driver = new FirefoxDriver();
-					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
-				}
-				
-				} else if (browser.equalsIgnoreCase("chrome")) {
-
-				//Loggerload.info("Testing on chrome");
-					if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
-					{				
-					ChromeOptions options = new ChromeOptions();
-			        options.addArguments("-headless");
-			        driver = new ChromeDriver(options);	
-			        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
-					}
-					else {
-						WebDriverManager.chromedriver().browserVersion("108.0.0").setup();
-						driver = new ChromeDriver();
-						System.out.println("Launching - "+browser.toUpperCase()+" Browser");
-					}
-					
-
-			} else if (browser.equalsIgnoreCase("safari")) {
-				
-					WebDriverManager.safaridriver().setup();
-					driver = new SafariDriver();
-					System.out.println("Launching - "+browser+" Browser");
-
-			} else if (browser.equalsIgnoreCase("edge")) {
-
-				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
-				{				
-				EdgeOptions options = new EdgeOptions();
-		        options.addArguments("-headless");
-		        driver = new EdgeDriver(options); 
-		        System.out.println("Launching Headless - "+browser.toUpperCase()+" Browser");
-				}
-				else {
-					WebDriverManager.edgedriver().setup();
-					driver = new EdgeDriver();
-					System.out.println("Launching - "+browser.toUpperCase()+" Browser");
-				}
-				 
-
-			}
-
-			// Set Page load timeout
-
-			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-
-			driver.manage().window().maximize();
-
-			return driver;
-
+		if (browser.equalsIgnoreCase("chrome")) {
+			localDriver.set(browserSetup("chrome"));
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			localDriver.set(browserSetup("firefox"));
+		} else if (browser.equalsIgnoreCase("safari")) {
+			localDriver.set(browserSetup("safari"));
+		} else if (browser.equalsIgnoreCase("edge")) {
+			localDriver.set(browserSetup("edge"));
+		} else {
+			System.out.println("Please enter correct browser: " + browser);
+		}
+		getDriver().manage().deleteAllCookies();
+		getDriver().manage().window().maximize();
+	//getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	
+	return getDriver();
+	
+	
+	}
+	
+	public static synchronized WebDriver getDriver() {
+		return localDriver.get();
 		
 	}
-
 	public static List<Map<String, String>> getData(String excelFilePath, String sheetName)
 			throws InvalidFormatException, IOException {
 		Sheet sheet = getSheetByName(excelFilePath, sheetName);
@@ -197,4 +234,57 @@ public class BaseTest {
 		return columnMapdata;
 	}
 
+	 public static WebDriver browserSetup(String browserName){
+
+	        WebDriver driver = null;
+	        if (browserName.equalsIgnoreCase("chrome")){
+	            WebDriverManager.chromedriver().setup();
+	            ChromeOptions chromeOptions = new ChromeOptions();
+	         
+	            if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+	            	chromeOptions.addArguments("-headless");
+	            else
+	            	chromeOptions.addArguments("-headed");
+	           
+	            driver = new ChromeDriver(chromeOptions);
+	            driver.manage().window().maximize();
+	        }
+	        else if (browserName.equalsIgnoreCase("firefox")){
+	        	WebDriverManager.firefoxdriver().setup();
+	        	FirefoxOptions fireFoxOptions = new FirefoxOptions();
+	         
+	            if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+	            	fireFoxOptions.addArguments("-headless");
+	            else
+	            	fireFoxOptions.addArguments("-headed");
+	           
+	            driver = new FirefoxDriver(fireFoxOptions);
+	            driver.manage().window().maximize();
+	            
+	            
+	        }
+	        if (browserName.equalsIgnoreCase("Edge")){
+
+	        	WebDriverManager.edgedriver().setup();    	
+	            EdgeOptions edgeOptions = new EdgeOptions();
+	         
+	            if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+	            	edgeOptions.addArguments("-headless");
+	            else
+	            	edgeOptions.addArguments("-headed");
+	           
+	            driver = new EdgeDriver(edgeOptions);
+	            driver.manage().window().maximize();
+
+	        }
+	        if (browserName.equalsIgnoreCase("Safari")){
+	        	WebDriverManager.safaridriver().setup();
+	            
+	            driver = new SafariDriver();
+	            driver.manage().window().maximize();
+
+
+	        }
+	   return driver;
+	}
 }

@@ -3,6 +3,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import stepDefinitions.Hooks;
 import commonFunctions.BaseTest;
 import commonFunctions.Utility;
 import java.io.FileNotFoundException;
@@ -25,6 +26,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 
+
 import commonFunctions.BaseTest;
 import commonFunctions.ConfigReader;
 import commonFunctions.Utility;
@@ -35,32 +37,25 @@ import commonFunctions.Utility;
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
-        tags = "@jenkin"
+        tags = "@jenkins"
 )
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 
-   
-    @Override
+	@Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
-        return super.scenarios();
+				
+		return super.scenarios();	
     }
-   
+	
+	@BeforeTest
+	@Parameters("Browser")
+	public void defineBrowser(String browser) throws Throwable {
+		System.out.println("Starting Browser " + browser);
+		Hooks.setBrowserName(browser);
+		BaseTest.runnerName=getClass().getCanonicalName();
+		System.out.println(BaseTest.runnerName);
 
-    @BeforeTest
-    @Parameters("Browser")
-    public void defineBrowser(String browser) throws Throwable {
-
-    
-		ConfigReader.setBrowserType(browser);
-		BaseTest.configProps.setProperty("browser",browser);
-		//Utility.invokeBrowser(browser);
-
-	}
-    
-    @AfterTest
-	public void tear() {
-		Utility.tearDown();
 	}
     
     

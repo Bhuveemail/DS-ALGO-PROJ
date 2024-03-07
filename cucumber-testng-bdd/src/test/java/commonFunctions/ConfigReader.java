@@ -1,23 +1,39 @@
 package commonFunctions;
 
-public class ConfigReader {
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
-	private static String browserType = null;
 
-	public static void setBrowserType(String browser) {
+public class ConfigReader {private static Properties prop = loadProperty();
 
-		browserType = browser;
-//
-	}
 
-	public static String getBrowserType() throws Throwable {
+public static String getProperty(String key) {
+	
+	return prop.getProperty(key);
+}
 
-		if (browserType != null)
+public static int getPropertyInt(String key) {
+	
+	return Integer.parseInt(prop.getProperty(key));
+}
 
-			return browserType;
+public static Properties loadProperty() {
+	
+	Properties p = new Properties();
+	try {
+		InputStream is = ConfigReader.class.getResourceAsStream("/config.properties");
+		p.load(is);
+	} catch (FileNotFoundException e) {
 		
-		return browserType;
-
-
+		e.printStackTrace();
+	} catch (IOException e) {
+		
+		e.printStackTrace();
 	}
+	
+	return p;
+}
+
 }

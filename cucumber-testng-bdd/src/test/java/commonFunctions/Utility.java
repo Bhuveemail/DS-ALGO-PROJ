@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Map;
@@ -65,60 +66,60 @@ public class Utility extends BaseTest {
 
 	public void loadUI(String url) {
 
-		driver.get(url);
+		BaseTest.getDriver().get(url);
 	}
 
 	public static void tearDown() {
-		driver.quit();
+		BaseTest.getDriver().quit();
 	}
 	public void implicitWait(long time) {
 
-		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+		BaseTest.getDriver().manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 
 	public void maximizeWindow() {
 
-		driver.manage().window().maximize();
+		BaseTest.getDriver().manage().window().maximize();
 	}
 
 	public void refreshWindow() {
 
-		driver.navigate().refresh();
+		BaseTest.getDriver().navigate().refresh();
 	}
 
 	public void backWindow() {
-		driver.navigate().back();
+		BaseTest.getDriver().navigate().back();
 	}
 
 	public void click(By element) {
 
-		driver.findElement(element).click();
+		BaseTest.getDriver().findElement(element).click();
 	}
 
 	public void sendText(By element, String keys) {
 
-		driver.findElement(element).sendKeys(keys);
+		BaseTest.getDriver().findElement(element).sendKeys(keys);
 	}
 
 	public String getText(By element) {
 
-		String text = driver.findElement(element).getText();
+		String text = BaseTest.getDriver().findElement(element).getText();
 		return text;
 	}
 
 	public int getElementSize(By element) {
-		int elementSize=driver.findElements(element).size();
+		int elementSize=BaseTest.getDriver().findElements(element).size();
 		return elementSize;
 	}
 	public Boolean isDisplayed(By element) {
 
-		Boolean presents = driver.findElement(element).isDisplayed();
+		Boolean presents = BaseTest.getDriver().findElement(element).isDisplayed();
 		return presents;
 
 	}
 public void highlightElement(WebElement element) throws InterruptedException {
 	 
-     JavascriptExecutor jse = (JavascriptExecutor) driver;
+     JavascriptExecutor jse = (JavascriptExecutor) getDriver();
      jse.executeScript("arguments[0].style.border='3px solid red'", element);
      Thread.sleep(500);
 }
@@ -146,9 +147,9 @@ public void highlightElement(WebElement element) throws InterruptedException {
 		click(Queue.tryHere);
 
 		waitTillElementVisible(Queue.run, 30);
-		driver.switchTo().activeElement().sendKeys(Keys.chord(Keys.chord(Keys.CONTROL + "A")));
-		driver.switchTo().activeElement().sendKeys(Keys.CLEAR);
-		driver.switchTo().activeElement().sendKeys(input);
+		BaseTest.getDriver().switchTo().activeElement().sendKeys(Keys.chord(Keys.chord(Keys.CONTROL + "A")));
+		BaseTest.getDriver().switchTo().activeElement().sendKeys(Keys.CLEAR);
+		BaseTest.getDriver().switchTo().activeElement().sendKeys(input);
 
 		click(Queue.run);
 
@@ -169,17 +170,17 @@ public void highlightElement(WebElement element) throws InterruptedException {
 	}
 
 	public void ArrayRunEditor(String input) {
-		driver.switchTo().activeElement().sendKeys(input);
+		BaseTest.getDriver().switchTo().activeElement().sendKeys(input);
 		click(Array.run);
 		
 	}
 
 	public void closePopUp() {
-		driver.switchTo().alert().accept();
+		BaseTest.getDriver().switchTo().alert().accept();
 	}
 	public void closePopUpIfExists() {
 		try {
-		driver.switchTo().alert().accept();
+		BaseTest.getDriver().switchTo().alert().accept();
 		}
 		catch(NoAlertPresentException ex) {
 			System.out.println("No alert");
@@ -195,15 +196,15 @@ public void highlightElement(WebElement element) throws InterruptedException {
 	}
 
 	public void takeScreenshot(Scenario scenario) {
-		TakesScreenshot ts = (TakesScreenshot) driver;
+		TakesScreenshot ts = (TakesScreenshot) getDriver();
 
 		byte[] src = ts.getScreenshotAs(OutputType.BYTES);
 		scenario.attach(src, "image/png", "screenshot");
 	}
 	
 	public void waitTillElementVisible(By element, int time) {
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
-		 wait.until(ExpectedConditions.visibilityOfElementLocated(element)); 	
+//		 WebDriverWait wait = new WebDriverWait((WebDriver) DriverManager.getDrivers(), Duration.ofSeconds(time));
+//		 wait.until(ExpectedConditions.visibilityOfElementLocated(element)); 	
 	}
 
 }

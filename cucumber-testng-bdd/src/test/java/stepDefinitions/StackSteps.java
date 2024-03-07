@@ -64,7 +64,7 @@ public class StackSteps extends Utility {
 
 	@Then("I validate the Stack pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_Stack_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
-		String alertErrorMessage = driver.switchTo().alert().getText();
+		String alertErrorMessage = getDriver().switchTo().alert().getText();
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
 		System.out.println("Negative Flow is verified successfully for " + input);
