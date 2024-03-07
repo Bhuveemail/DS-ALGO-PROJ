@@ -17,12 +17,12 @@
         </classes>
     </test>    --> 
     
-   <!--  <test name="Edge Test">
+   <!--   <test name="Edge Test">
         <parameter name="Browser" value="EDGE"/>
         <classes>
             <class name="Runners.crossBrowserTestRunner"/>
         </classes>
-    </test> --> 
+    </test>  -->
     
     
 </suite>

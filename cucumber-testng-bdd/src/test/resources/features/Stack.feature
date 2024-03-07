@@ -13,6 +13,8 @@ Feature: Verify the stack functionalities
     Then I click on Operations in Stack
     Then I verify the Stack Try here functionalities with input "<negative_input>"
     Then I validate the Stack pop up and error message "<errorMessage>" for negative scenario for "Operations in Stack"
+    When I go back to the screen
+    Then I log out 
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
@@ -29,6 +31,8 @@ Feature: Verify the stack functionalities
     Then I click on Implementation
     Then I verify the Stack Try here functionalities with input "<negative_input>"
     Then I validate the Stack pop up and error message "<errorMessage>" for negative scenario for "I click on Implementation"
+    When I go back to the screen
+    Then I log out 
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
@@ -45,6 +49,8 @@ Feature: Verify the stack functionalities
     Then I click on Applications Link
     Then I verify the Stack Try here functionalities with input "<negative_input>"
     Then I validate the Stack pop up and error message "<errorMessage>" for negative scenario for "I click on Applications"
+    When I go back to the screen
+    Then I log out 
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
       | print"""hello"""; | print123"""hello""";  | SyntaxError: bad input on line 1 |
@@ -58,6 +64,8 @@ Feature: Verify the stack functionalities
     
     Then I click on Practice Questions of Stack
    	Then I verify the Stack blank page for "Practice Questions"
+   	When I go back to the screen
+    Then I log out 
  
     Examples: 
       | positive_input    | negative_input        | errorMessage                     |
