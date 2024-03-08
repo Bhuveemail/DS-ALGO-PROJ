@@ -39,7 +39,8 @@ import commonFunctions.Utility;
         		"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
         tags = "@jenkins"
-)
+)//crossbrowser
+
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 
 	@Override
