@@ -36,6 +36,7 @@ import commonFunctions.Utility;
         glue = {"stepDefinitions"}, 
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
+        		"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
         tags = "@jenkins"
 )
