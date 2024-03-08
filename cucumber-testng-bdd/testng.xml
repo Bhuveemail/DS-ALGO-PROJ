@@ -10,19 +10,19 @@
         </classes>
     </test>
     
-     <test name="FireFox Test">
+    <!--  <test name="FireFox Test">
         <parameter name="Browser" value="FIREFOX"/>
         <classes>
             <class name="Runners.crossBrowserTestRunner"/>
         </classes>
-    </test>   
+    </test>  -->  
     
-  <!--  <test name="Edge Test">
+   <test name="Edge Test">
         <parameter name="Browser" value="EDGE"/>
         <classes>
             <class name="Runners.crossBrowserTestRunner"/>
         </classes>
-    </test>  -->
+    </test> 
     
     
 </suite>
