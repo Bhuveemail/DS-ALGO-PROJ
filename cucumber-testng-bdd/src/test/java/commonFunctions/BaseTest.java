@@ -47,7 +47,7 @@ public class BaseTest {
 //			if (browser.equalsIgnoreCase("firefox")) {
 //
 //				//Loggerload.info("Testing on firefox");
-//				if(BaseTest.configProps.getProperty("headless").equalsIgnoreCase("Y"))
+//				if(BaseTest.`Props.getProperty("headless").equalsIgnoreCase("Y"))
 //				{				
 //				FirefoxOptions options = new FirefoxOptions();
 //		        options.addArguments("-headless");
