@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
 
+import commonFunctions.LoggerLoad;
 import commonFunctions.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -32,6 +33,7 @@ public class StackSteps extends Utility {
 	@Then("I verify the Stack box displays")
 	public void i_verify_the_Stack_box_displays() {
 		String StackBoxText = getText(Stack.StackCard);
+		LoggerLoad.info(StackBoxText);
 		Assert.assertEquals("Stack", StackBoxText);
 	}
 
@@ -41,6 +43,8 @@ public class StackSteps extends Utility {
 		click(Stack.StackgetStarted);
 		System.out.println("Stack Get Started Button Clicked");
 		System.out.println("-------------------------------------------------------");
+		LoggerLoad.info("Stack Get Started Button Clicked");
+		LoggerLoad.info("-------------------------------------------------------");
 
 	}
 
@@ -57,7 +61,8 @@ public class StackSteps extends Utility {
 		String actual = getText(Stack.output);
 		Assert.assertEquals("hello", actual);
 
-		System.out.println("Positive Flow is verified successfully for " + input);
+		System.out.println("Positive Flow is verified successfully for " +input);
+		LoggerLoad.info("Positive Flow is verified successfully for " +input);
 		backWindow();
 
 	}
@@ -65,13 +70,14 @@ public class StackSteps extends Utility {
 	@Then("I validate the Stack pop up and error message \"(.*)\" for negative scenario for \"(.*)\"$")
 	public void i_validate_the_Stack_pop_up_and_error_message_for_negative_scenario(String errorMessage, String input) {
 		String alertErrorMessage = getDriver().switchTo().alert().getText();
+		LoggerLoad.info(alertErrorMessage);
 		Assert.assertEquals(errorMessage, alertErrorMessage);
 		closePopUp();
-		System.out.println("Negative Flow is verified successfully for " + input);
+		System.out.println("Negative Flow is verified successfully for " +input);
+		LoggerLoad.info("Negative Flow is verified successfully for " +input);
 		System.out.println("-------------------------------------------------------");
+		LoggerLoad.info("----------------------------------------------------------");	
 		backWindow();
-
-
 	}
 
 	@Then("I click on Operations in Stack")

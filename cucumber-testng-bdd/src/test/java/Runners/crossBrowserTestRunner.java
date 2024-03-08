@@ -29,6 +29,7 @@ import org.testng.annotations.Parameters;
 
 import commonFunctions.BaseTest;
 import commonFunctions.ConfigReader;
+import commonFunctions.LoggerLoad;
 import commonFunctions.Utility;
 
 @CucumberOptions(
@@ -39,7 +40,7 @@ import commonFunctions.Utility;
         		"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
         tags = "@jenkins"
-)//crossbrowser
+)
 
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 
@@ -54,9 +55,11 @@ public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
 	@Parameters("Browser")
 	public void defineBrowser(String browser) throws Throwable {
 		System.out.println("Starting Browser " + browser);
+		LoggerLoad.info("Starting Browser " +browser);
 		Hooks.setBrowserName(browser);
 		BaseTest.runnerName=getClass().getCanonicalName();
 		System.out.println(BaseTest.runnerName);
+		LoggerLoad.info("runner Name :" +BaseTest.runnerName);
 
 	}
     

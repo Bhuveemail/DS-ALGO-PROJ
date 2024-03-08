@@ -65,6 +65,7 @@ public void afterStepLog(Scenario sc) {
 public void quitBrowser() {
 	if(driver!=null)
 	driver.quit();
+	LoggerLoad.info("driver is closed");
 }
 
 @After(order=1)

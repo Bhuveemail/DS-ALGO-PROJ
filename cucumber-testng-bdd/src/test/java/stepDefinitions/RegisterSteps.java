@@ -26,7 +26,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 
 public class RegisterSteps extends Utility {
-
+	private String errMsg="password_mismatch:The two password fields didn’t match.";
 	@When("I click on register link")
 	public void i_click_on_register_link() throws InvalidFormatException, IOException {
 		click(Register.registerLink);
@@ -71,7 +71,7 @@ public class RegisterSteps extends Utility {
 		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
-		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
+		Assert.assertEquals(errMsg, actualError);
 
 	}
 
@@ -85,7 +85,7 @@ public class RegisterSteps extends Utility {
 		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
-		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
+		Assert.assertEquals(errMsg, actualError);
 
 	}
 
@@ -99,7 +99,7 @@ public class RegisterSteps extends Utility {
 		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
-		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
+		Assert.assertEquals(errMsg, actualError);
 
 	}
 
@@ -113,7 +113,7 @@ public class RegisterSteps extends Utility {
 		waitTillElementVisible(Register.errorMessge, 30);
 		String actualError = getText(Register.errorMessge).replaceAll("\\n", "").replaceAll("\\r", "");
 		System.out.println("Error Message - " + actualError);
-		Assert.assertEquals("password_mismatch:The two password fields didn’t match.", actualError);
+		Assert.assertEquals(errMsg, actualError);
 
 	}
 
