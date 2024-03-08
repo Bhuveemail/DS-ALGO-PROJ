@@ -36,7 +36,7 @@ import commonFunctions.Utility;
         glue = {"stepDefinitions"}, 
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         		"json:target/cucumber-reports/cucumber.json",
-        		"html:target/cucumber-reports/cucumberreport.html"}, publish=true,
+        		"html:target/cucumber-reports/cucumberreport.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}, publish=true,
         tags = "@jenkins"
 )
 public class crossBrowserTestRunner extends AbstractTestNGCucumberTests {
